@@ -8,6 +8,10 @@ class model_alternatif extends CI_Model{
         return $this->db->query ("SELECT * from tb_alternatif")->result();
     }
 
+    public function getAltenatifById($id_alternatif){
+    	return $this->db->query ("SELECT * from tb_alternatif WHERE id_alternatif='$id_alternatif'");
+    }
+
     public function getKriteria(){
         return $this->db->query ("SELECT * from tb_kriteria");
     }
@@ -42,7 +46,18 @@ class model_alternatif extends CI_Model{
 		$this->db->join('tb_alternatif', 'tb_alternatif.id_alternatif = tb_nilaialternatif.id_alternatif');
 		$this->db->join('tb_kriteria', 'tb_kriteria.id_kriteria = tb_nilaialternatif.id_kriteria');
 		$this->db->where('tb_nilaialternatif.id_alternatif',$id_alternatif);
-		$this->db->order_by('tb_alternatif.id_alternatif','ASC');
+		$this->db->order_by('tb_nilaialternatif.id_nilai','ASC');
+		$query = $this->db->get();
+		return $query;
+	}
+
+	public function getNilaiAlternatif3($id_nilai){
+		$this->db->select('*');
+		$this->db->from('tb_nilaialternatif');
+		$this->db->join('tb_alternatif', 'tb_alternatif.id_alternatif = tb_nilaialternatif.id_alternatif');
+		$this->db->join('tb_kriteria', 'tb_kriteria.id_kriteria = tb_nilaialternatif.id_kriteria');
+		$this->db->where('tb_nilaialternatif.id_nilai',$id_nilai);
+		$this->db->order_by('tb_nilaialternatif.id_nilai','ASC');
 		$query = $this->db->get();
 		return $query;
 	}
@@ -70,8 +85,16 @@ class model_alternatif extends CI_Model{
 		//$query = $this->db->get();
 		//return $query;
 
-			return $this->db->query ("SELECT * FROM tb_nilaialternatif a, tb_alternatif b, tb_kriteria c WHERE a.id_alternatif=b.id_alternatif AND a.id_kriteria=c.id_kriteria");
+			return $this->db->query ("SELECT * FROM tb_nilaialternatif a, tb_alternatif b, tb_kriteria c WHERE a.id_alternatif=b.id_alternatif AND a.id_kriteria=c.id_kriteria ORDER BY b.id_alternatif ASC");
 		
+	}
+
+	public function prosesTambahNilaiAlternatif($id_alternatif, $data){
+		$this->db->set($data)->insert('tb_nilaialternatif');
+	}
+
+	public function prosesEditNilaiAlternatif($id_nilai, $data){
+		$this->db->set($data)->where('id_nilai', $id_nilai)->update('tb_nilaialternatif');
 	}
 
 	public function getHitungNilaiALternatif(){

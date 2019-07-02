@@ -2,11 +2,14 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Alternatif</h4>
+                  <h4 class="card-title">Alternatif (<b><?php echo $data_alternatif->nama_alternatif?></b>)</h4>
                   <div class="row grid-margin">
-                    <div class="col-3">
-                     <a class="btn btn-inverse-success" href="<?php echo site_url('Alternatif/tambahAlternatif')?>">Tambah Alternatif</a>
+                    
+                    <div class="col-12">
+                     <a class="btn btn-inverse-success" href="<?php echo site_url('Alternatif/tambahNilaiAlternatif/'.$this->uri->segment(3))?>">Tambah Alternatif</a>
+                     <a href="<?php echo site_url('Alternatif')?>" class="btn btn-outline-primary">Batal</a>
                     </div>
+                    <!--
                     <div class="col-3">
                     </div>
                     <div class="col-3">
@@ -38,6 +41,7 @@
                       </div>  
                     </form>
                     </div>
+                  -->
                   </div>
                   <div class="row">
                     <div class="col-12 table-responsive">
@@ -45,16 +49,15 @@
                         <thead>
                           <tr class="bg-light">
                             <th style="text-align: center;">No</th>
-                            <th style="text-align: center;">Nama Alternatif</th>
                             <?php
                             //foreach($data_kriteria as $row1){
                             ?>
-                              <th style="text-align: center;">Nilai Alternatif</th>
+                              <th style="text-align: center;">Nama Kriteria</th>
                             <?php
                             //}
                             ?>
                             <th style="text-align: center;">Nilai Kriteria</th>
-                            <th style="text-align: center;">Action <a href="<?php echo site_url('nilaiAlternatif')?>" class="btn btn-xs btn-inverse-success"> <i class="icon icon-refresh"></i></a></th>
+                            <th style="text-align: center;">Action</th>
                           </tr>
                         </thead>
                         
@@ -66,18 +69,16 @@
                           <tr>
                               <td  style="text-align: center;"><?php echo $no++ ?></td>
 
-                              <td  style="text-align: center;"><?php echo $row->nama_alternatif ?></td>
-
                               <td  style="text-align: center;"><?php echo $row->nama_kriteria ?></td>
                               
                               <td  style="text-align: center;"><?php echo $row->nilai ?></td>
 
                               <td  style="text-align: center;" class="text-right" width="1">
-                                <a class="btn btn-light  btn-sm" href="<?php echo site_url('Alternatif/editAlternatif/'.$row->id_alternatif);?>">
-                                  <i class="icon-pencil text-primary"></i>Edit
+                                <a class="btn btn-outline-success btn-rounded btn-sm" href="<?php echo site_url('Alternatif/editNilaiAlternatif/'.$row->id_nilai);?>">
+                                  <i class="icon-pencil"></i>
                                 </a>
-                                <a class="btn btn-light btn-sm" href="<?php echo site_url('Alternatif/deleteAlternatif/'.$row->id_alternatif);?>">
-                                  <i class="icon-close text-danger"></i>Remove
+                                <a class="btn btn-outline-danger btn-rounded btn-sm" href="<?php echo site_url('Alternatif/deleteAlternatif/'.$row->id_alternatif);?>">
+                                  <i class="icon-close"></i>
                                 </button>
                               </td>
                           </tr>
@@ -87,16 +88,7 @@
                         </tbody>
                       
                       </table>
-                      <nav>
-                    <ul class="pagination d-flex justify-content-end pagination-success">
-                      <li class="page-item"><a class="page-link" href="#"><i class="icon-arrow-left"></i></a></li>
-                      <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                      <li class="page-item"><a class="page-link" href="#">2</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">4</a></li>
-                      <li class="page-item"><a class="page-link" href="#"><i class="icon-arrow-right"></i></a></li>
-                    </ul>
-                  </nav>
+                      
                     </div>
                   </div>
                 </div>

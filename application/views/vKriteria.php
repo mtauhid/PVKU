@@ -19,12 +19,12 @@
                               <th style="text-align: center;">Action</th>
                           </tr>
                         </thead>
-                        <?php
+                        
+                        <tbody>
+                          <?php
                           $no = 1;
-                          if(isset($data_kriteria)){
                           foreach($data_kriteria as $row){
                         ?>
-                        <tbody>
                           <tr>
                               <td  style="text-align: center;"><?php echo $no++ ?></td>
                               <td  style="text-align: center;"><?php echo $row->nama_kriteria ?></td>
@@ -40,11 +40,11 @@
                                 </a>
                               </td>
                           </tr>
-                        </tbody>
-                      <?php 
-                            } 
+                          <?php 
                         } 
                       ?>
+                        </tbody>
+                      
                       </table>
                     </div>
                   </div>

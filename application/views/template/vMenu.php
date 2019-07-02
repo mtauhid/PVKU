@@ -6,9 +6,6 @@
               <a href="<?php echo site_url('Alternatif')?>" class="nav-link"><i class="link-icon icon-list"></i><span class="menu-title">Alternatif</span></a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo site_url('nilaiAlternatif')?>" class="nav-link"><i class="link-icon icon-list"></i><span class="menu-title">Nilai Alternatif</span></a>
-            </li>
-            <li class="nav-item">
               <a href="<?php echo site_url('Kriteria')?>" class="nav-link"><i class="link-icon  icon-grid"></i><span class="menu-title">Kriteria</span></a>
             </li>
             <li class="nav-item">

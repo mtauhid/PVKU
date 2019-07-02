@@ -5,7 +5,7 @@
                   <h4 class="card-title">Alternatif</h4>
                   <div class="row grid-margin">
                     <div class="col-12">
-                     <a class="btn btn-inverse-success" href="<?php echo site_url('Alternatif/tambahAlternatif')?>">Tambah Alternatif</a>
+                     <a class="btn btn-success" href="<?php echo site_url('Alternatif/tambahAlternatif')?>"><i class="icon icon-plus"></i> Tambah Alternatif</a>
                     </div>
                   </div>
                   <div class="row">
@@ -19,12 +19,12 @@
                               <th style="text-align: center;">Action</th>
                           </tr>
                         </thead>
-                        <?php
+                        
+                        <tbody>
+                          <?php
                           $no = 1;
-                          if(isset($data_alternatif)){
                           foreach($data_alternatif as $row){
                         ?>
-                        <tbody>
                           <tr>
                               <td  style="text-align: center;"><?php echo $no++ ?></td>
                               <td  style="text-align: center;"><?php echo $row->nama_alternatif ?></td>
@@ -40,33 +40,23 @@
                               </td>
                               <td  style="text-align: center;" class="text-right" width="1">
                                
-                                <a class="btn btn-light  btn-sm" href="<?php echo site_url('Alternatif/tambahNilaiAlternatif/'.$row->id_alternatif);?>">
-                                  <i class="icon-plus text-primary"></i>Tambah Nilai
+                                <a class="btn btn-outline-success btn-rounded btn-sx" href="<?php echo site_url('Alternatif/nilaiAlternatif/'.$row->id_alternatif);?>">
+                                  <i class="icon-plus"></i> Nilai
                                 </a>
-                                <a class="btn btn-light  btn-sm" href="<?php echo site_url('Alternatif/editAlternatif/'.$row->id_alternatif);?>">
-                                  <i class="icon-pencil text-primary"></i>Edit
+                                <a class="btn btn-outline-primary btn-rounded btn-sx" href="<?php echo site_url('Alternatif/editAlternatif/'.$row->id_alternatif);?>">
+                                  <i class="icon-pencil"></i> Edit
                                 </a>
-                                <a class="btn btn-light btn-sm" href="<?php echo site_url('Alternatif/deleteAlternatif/'.$row->id_alternatif);?>">
-                                  <i class="icon-close text-danger"></i>Remove
+                                <a class="btn btn-outline-danger btn-rounded btn-sx" href="<?php echo site_url('Alternatif/deleteAlternatif/'.$row->id_alternatif);?>">
+                                  <i class="icon-close"></i> Hapus
                                 </button>
                               </td>
                           </tr>
+                          <?php 
+                            }
+                          ?>
                         </tbody>
-                      <?php 
-                            } 
-                        } 
-                      ?>
+                      
                       </table>
-                      <nav>
-                    <ul class="pagination d-flex justify-content-end pagination-success">
-                      <li class="page-item"><a class="page-link" href="#"><i class="icon-arrow-left"></i></a></li>
-                      <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                      <li class="page-item"><a class="page-link" href="#">2</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">4</a></li>
-                      <li class="page-item"><a class="page-link" href="#"><i class="icon-arrow-right"></i></a></li>
-                    </ul>
-                  </nav>
                     </div>
                   </div>
                 </div>

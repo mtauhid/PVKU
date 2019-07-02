@@ -3,10 +3,10 @@
   $(function() {
     $('#order-listing').DataTable({
       "aLengthMenu": [
-        [5, 10, 15, -1],
-        [5, 10, 15, "All"]
+        [10, 15, 20, -1],
+        [10, 15, 20, "All"]
       ],
-      "iDisplayLength": 10,
+      "iDisplayLength": 15,
       "language": {
         search: ""
       }
@@ -15,7 +15,7 @@
       var datatable = $(this);
       // SEARCH - Add the placeholder for Search and Turn this into in-line form control
       var search_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] input');
-      search_input.attr('placeholder', 'Search');
+      search_input.attr('placeholder', 'Cari...');
       search_input.removeClass('form-control-sm');
       // LENGTH - Inline-Form control
       var length_sel = datatable.closest('.dataTables_wrapper').find('div[id$=_length] select');

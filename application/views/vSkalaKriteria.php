@@ -21,11 +21,12 @@
                               <th style="text-align: center;">Action</th>
                           </tr>
                         </thead>
-                        <?php
+                        
+                        <tbody>
+                          <?php
                           $no = 1;
                           foreach($data_skala_kriteria as $skala){
                         ?>
-                        <tbody>
                           <tr>
                               <td  style="text-align: center;"><?php echo $no++ ?></td>
                               <td  style="text-align: center;"><?php echo $skala->skala_kriteria ?></td>
@@ -39,10 +40,11 @@
                                 </a>
                               </td>
                           </tr>
-                        </tbody>
-                      <?php
+                          <?php
                         } 
                       ?>
+                        </tbody>
+                      
                       </table>
                     </div>
                   </div>
