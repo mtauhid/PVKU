@@ -10,7 +10,7 @@
                   </div>
                   <div class="row">
                     <div class="col-12 table-responsive">
-                      <table id="order-listing" class="table table-bordered">
+                      <table id="order-listing" class="table">
                         <thead>
                           <tr class="bg-light">
                               <th style="text-align: center;">No</th>
@@ -40,13 +40,13 @@
                               </td>
                               <td  style="text-align: center;" class="text-right" width="1">
                                
-                                <a class="btn btn-outline-success btn-rounded btn-sx" href="<?php echo site_url('Alternatif/nilaiAlternatif/'.$row->id_alternatif);?>">
+                                <a class="btn btn-light btn-rounded btn-sm" href="<?php echo site_url('Alternatif/nilaiAlternatif/'.$row->id_alternatif);?>">
                                   <i class="icon-plus"></i> Nilai
                                 </a>
-                                <a class="btn btn-outline-primary btn-rounded btn-sx" href="<?php echo site_url('Alternatif/editAlternatif/'.$row->id_alternatif);?>">
+                                <a class="btn btn-light  btn-sm btn-rounded btn-sx" href="<?php echo site_url('Alternatif/editAlternatif/'.$row->id_alternatif);?>">
                                   <i class="icon-pencil"></i> Edit
                                 </a>
-                                <a class="btn btn-outline-danger btn-rounded btn-sx" href="<?php echo site_url('Alternatif/deleteAlternatif/'.$row->id_alternatif);?>">
+                                <a class="btn btn-light  btn-sm btn-rounded btn-sx" href="<?php echo site_url('Alternatif/deleteAlternatif/'.$row->id_alternatif);?>">
                                   <i class="icon-close"></i> Hapus
                                 </button>
                               </td>

@@ -9,7 +9,7 @@ class Pembobotan extends CI_Controller{
     }
 	public function index(){
 		$data=array(
-			'data_bobot'=>$this->model_pembobotan->getDataBobot(),
+			'data_bobot'=>$this->model_pembobotan->getDataBobot()->result(),
 			'content'=>'vPembobotan'
 		);
 
@@ -23,12 +23,12 @@ class Pembobotan extends CI_Controller{
 	}
 
 	public function editBobot(){
-		$data_kriteria = $this ->modell ->getKriteria();
-    $idkriteria = $this->uri->segment(3);
-    $dataskalakriteria = $this->model_pembobotan->getDataSkalaKriteria($idkriteria);
+    $id_kriteria = $this->uri->segment(3);
+    $data_skala_kriteria = $this->model_pembobotan->getSkalaKriteriaById($id_kriteria)->result();
+    $dataskalakriteria = $this->model_pembobotan->getDataSkalaKriteria($id_kriteria)->row();
 		$data=array(
-			'data_kriteria'=>$data_kriteria,
 			'content'=>'vEditBobot',
+      'data_skala_kriteria_by_id' => $data_skala_kriteria,
       'data_skala_kriteria'=>$dataskalakriteria
 		);
 
@@ -37,50 +37,27 @@ class Pembobotan extends CI_Controller{
 	}
 
 	public function saveEditBobot(){
+    $id_kriteria = $this->input->post('id_kriteria');
+    $bobot_awal = $this->input->post('bobot_awal');
+    $id_skalakriteria = $this->input->post('skala_kriteria');
 		if($_POST){
-            $data = array(
-                'id_skalakriteria'=>$this->input->post('skala_kriteria')
-            );
-            $return = $this->model_pembobotan->edit($data);
-            echo $return;
-        }else{
-            redirect(base_url('Pembobotan'));
-        }
+      $data = array('id_skalakriteria' => $id_skalakriteria,'bobot_awal' => $bobot_awal);
+      $return = $this->model_pembobotan->edit($data, $id_kriteria);
+      echo $return;
+      redirect(base_url('Pembobotan'));
+    }else{
+      redirect(base_url('Kriteria'));
+    }
 	}
 
-	public function get_data_skala_kriteria(){
-		$nama_kriteria=$this->input->post('nama_kriteria');
+	public function getDataNiliForSkala(){
+    $skala_kriteria=$this->input->post('skala_kriteria');
 
-      $data_skala_kriteria=$this->modell->get_data_skala_kriteria_byid($nama_kriteria);
-      $i=0;
-      echo '<select name="skala_kriteria" id="skala_kriteria" required=""> ';
-      foreach ($data_skala_kriteria as $row ) {
-        if($i==0){
-					echo '<option value="'.$row->id_skalakriteria.'" selected>'.$row->skala_kriteria.' ('.$row->nilai_kriteria.')</option>';
-        }else{
-          echo '<option value="'.$row->id_skalakriteria.'">'.$row->skala_kriteria.' ('.$row->nilai_kriteria.')</option>';
-        }
-        $i++;
-      }
-      echo '</select>';
-	}
-
-	public function get_jenis_kriteria(){
-    $nama_kriteria=$this->input->post('nama_kriteria');
-
-  	$data_jenis_kriteria=$this->modell->get_data_jenis_kriteria_byid($nama_kriteria)->row();
+  	$data_skala_kriteria=$this->model_pembobotan->getNilaiSkalaForBobotById($skala_kriteria)->row();
 
     //echo '<input type="text" name="nohp" class="form-control" id="nohp" value="'.$data_noplat_user->no_hp.'" required="" readonly="">';
-    echo $data_jenis_kriteria->jenis_kriteria;
+    echo $data_skala_kriteria->nilai_skalakriteria;
   }
 
-	public function get_skala_kriteria(){
-    $nama_kriteria=$this->input->post('nama_kriteria');
-
-  	$data_skalakriteria=$this->modell->get_skala_kriteria_byid($nama_kriteria)->row();
-
-    //echo '<input type="text" name="nohp" class="form-control" id="nohp" value="'.$data_noplat_user->no_hp.'" required="" readonly="">';
-    echo $data_skalakriteria->skala_kriteria;
-  }
 }
 ?>

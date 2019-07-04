@@ -9,7 +9,7 @@
                   </div>
                   <div class="row">
                     <div class="col-12 table-responsive">
-                      <table id="order-listing" class="table">
+                      <table id="order-listing"  class="table">
                         <thead>
                           <tr class="bg-light">
                               <th style="text-align: center;">No</th>
@@ -29,9 +29,11 @@
                           <tr>
                               <td  style="text-align: center;"><?php echo $no++ ?></td>
                               <td  style="text-align: center;"><?php echo $row->nama_kriteria ?></td>
-                              <td style="text-align: center;"><b><?php echo $row->bobot_awal ?></b></td>
+                              <td style="text-align: center;"><?php echo $row->skala_kriteria." (<b>".$row->bobot_awal."</b>)" ?></td>
                               <td style="text-align: center;"><b><?php echo $row->bobot_akhir ?></b></td>
-                              <td style="text-align: center;"><a href="<?php echo base_url("Pembobotan/editBobot/".$row->id_kriteria)?>" class="btn btn-xs btn-success">Edit<i class=""></i></a></td>
+                              <td style="text-align: center;">
+                                <a href="<?php echo base_url("Pembobotan/editBobot/".$row->id_kriteria)?>" class="btn btn-light btn-rounded "><i class="icon-pencil"></i> Edit</a>
+                              </td>
                           </tr>
                         </tbody>
                       <?php

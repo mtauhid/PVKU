@@ -5,12 +5,12 @@
                   <h4 class="card-title">Kriteria</h4>
                   <div class="row grid-margin">
                     <div class="col-12">
-                     <a class="btn btn-inverse-success" href="<?php echo site_url('Kriteria/tambahKriteria')?>">Tambah Kriteria</a>
+                     <a class="btn btn-success" href="<?php echo site_url('Kriteria/tambahKriteria')?>"><i class="icon icon-plus"></i> Tambah Kriteria</a>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-12 table-responsive">
-                      <table id="order-listing" class="table table-bordered">
+                      <table id="order-listing" class="table">
                         <thead>
                           <tr class="bg-light">
                               <th style="text-align: center;">No</th>
@@ -28,15 +28,14 @@
                           <tr>
                               <td  style="text-align: center;"><?php echo $no++ ?></td>
                               <td  style="text-align: center;"><?php echo $row->nama_kriteria ?></td>
-                              <td style="text-align: center;" title="Edit Skala Kriteria"><a class="btn btn-warning btn-icon btn-xs" style="width: 70px" href="<?php echo site_url('Kriteria/skalaKriteria/'.$row->id_kriteria);?>">
-                                  <?php echo $row->jenis_kriteria ?>
-                                </a></td>
-                              <td  style="text-align: center;" class="text-right" width="1">
-                                <a class="btn btn-light  btn-sm" href="<?php echo site_url('Kriteria/editKriteria/'.$row->id_kriteria);?>">
-                                  <i class="icon-pencil text-primary btn-xs"></i>
+                              <td style="text-align: center;" title="Edit Skala Kriteria"><?php echo $row->jenis_kriteria ?></td>
+                              <td  style="text-align: center;" width="1">
+                                <a class="btn btn-light btn-rounded" href="<?php echo site_url('Kriteria/skalaKriteria/'.$row->id_kriteria);?>">Skala Kriteria
                                 </a>
-                                <a class="btn btn-light  btn-sm" href="<?php echo site_url('Kriteria/deleteKriteria/'.$row->id_kriteria);?>">
-                                  <i class="icon-trash text-danger btn-xs"></i>
+                                <a class="btn btn-light btn-rounded" href="<?php echo site_url('Kriteria/editKriteria/'.$row->id_kriteria);?>"><i class="icon-pencil btn-xs"></i>
+                                </a>
+                                <a class="btn btn-light btn-rounded" href="<?php echo site_url('Kriteria/deleteKriteria/'.$row->id_kriteria);?>">
+                                  <i class="icon-trash btn-xs"></i>
                                 </a>
                               </td>
                           </tr>

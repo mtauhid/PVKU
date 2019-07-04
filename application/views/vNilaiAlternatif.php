@@ -6,8 +6,8 @@
                   <div class="row grid-margin">
                     
                     <div class="col-12">
-                     <a class="btn btn-inverse-success" href="<?php echo site_url('Alternatif/tambahNilaiAlternatif/'.$this->uri->segment(3))?>">Tambah Alternatif</a>
-                     <a href="<?php echo site_url('Alternatif')?>" class="btn btn-outline-primary">Batal</a>
+                     <a class="btn btn-success" href="<?php echo site_url('Alternatif/tambahNilaiAlternatif/'.$this->uri->segment(3))?>"><i class="icon icon-plus"></i> Tambah Alternatif</a>
+                     <a href="<?php echo site_url('Alternatif')?>" class="btn btn-primary">Batal</a>
                     </div>
                     <!--
                     <div class="col-3">
@@ -74,11 +74,11 @@
                               <td  style="text-align: center;"><?php echo $row->nilai ?></td>
 
                               <td  style="text-align: center;" class="text-right" width="1">
-                                <a class="btn btn-outline-success btn-rounded btn-sm" href="<?php echo site_url('Alternatif/editNilaiAlternatif/'.$row->id_nilai);?>">
-                                  <i class="icon-pencil"></i>
+                                <a class="btn btn-light btn-rounded" href="<?php echo site_url('Alternatif/editNilaiAlternatif/'.$row->id_nilai);?>">
+                                  <i class="icon-pencil"></i> Edit
                                 </a>
-                                <a class="btn btn-outline-danger btn-rounded btn-sm" href="<?php echo site_url('Alternatif/deleteAlternatif/'.$row->id_alternatif);?>">
-                                  <i class="icon-close"></i>
+                                <a class="btn btn-light btn-rounded" href="<?php echo site_url('Alternatif/deleteAlternatif/'.$row->id_alternatif);?>">
+                                  <i class="icon-close"></i> Hapus
                                 </button>
                               </td>
                           </tr>

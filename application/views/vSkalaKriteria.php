@@ -4,7 +4,7 @@
                 <div class="card-body">
                   <h4 class="card-title">Skala Kriteria <b>(<?php echo $kriteria->nama_kriteria?>)</b></h4>
                   <br>
-                  <a href="<?php echo site_url('Kriteria/tambahSkalaKriteria/'.$this->uri->segment(3)) ?>" class="btn btn-success">Tambah Skala</a>
+                  <a href="<?php echo site_url('Kriteria/tambahSkalaKriteria/'.$this->uri->segment(3)) ?>" class="btn btn-success"><i class="icon icon-plus"></i> Tambah Skala</a>
                   <a href="<?php echo site_url('Kriteria') ?>" class="btn btn-primary" >Batal</a>
                   <div class="row grid-margin">
                     <div class="col-12">
@@ -32,10 +32,10 @@
                               <td  style="text-align: center;"><?php echo $skala->skala_kriteria ?></td>
                               <td  style="text-align: center;"><?php echo $skala->nilai_skalakriteria ?></td>
                               <td  style="text-align: center;" class="text-right" width="1">
-                                <a class="btn btn-inverse-warning  btn-xs" href="<?php echo site_url('Kriteria/editSkalaKiteria/'.$skala->id_skalakriteria);?>">
+                                <a class="btn btn-light btn-rounded" href="<?php echo site_url('Kriteria/editSkalaKiteria/'.$skala->id_skalakriteria);?>">
                                   <i class="icon-pencil"></i>Edit
                                 </a>
-                                <a class="btn btn-inverse-danger  btn-xs" href="<?php echo site_url('Kriteria/deleteSkalaKriteria/'.$skala->id_skalakriteria);?>">
+                                <a class="btn btn-light btn-rounded" href="<?php echo site_url('Kriteria/deleteSkalaKriteria/'.$skala->id_skalakriteria);?>">
                                   <i class="icon-close"></i>Remove
                                 </a>
                               </td>
