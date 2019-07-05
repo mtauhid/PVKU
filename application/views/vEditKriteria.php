@@ -29,23 +29,7 @@
                         <?php } ?>
                         </select>
                       </div>
-                      <div class="form-group">
-                      <label for="exampleSelectGender">Status</label>
-                        <select class="form-control" name="status" id="exampleSelectGender">
-                          <option disabled>Pilih Status</option>
-                          <?php
-                            if($data_kriteria->status == "1"){
-                          ?>
-                          <option value="1" selected>Aktif</option>
-                          <option value="0">Non Aktif</option>
-                          <?php
-                            }else{
-                          ?>
-                          <option value="1">Aktif</option>
-                          <option value="0" selected>Non Aktif</option>
-                        <?php } ?>
-                        </select>
-                      </div>
+                     
                     <button type="submit" class="btn btn-primary mr-2">Simpan Perubahan</button>
                     <a href="<?php echo site_url('Kriteria')?>" class="btn btn-outline-primary">Batal</a>
                   </form>

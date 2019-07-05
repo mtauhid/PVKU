@@ -2,11 +2,11 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Alternatif (<b><?php echo $data_alternatif->nama_alternatif?></b>)</h4>
+                  <h4 class="card-title">Nilai Alternatif (<b><?php echo $data_alternatif->nama_alternatif?></b>)</h4>
                   <div class="row grid-margin">
                     
                     <div class="col-12">
-                     <a class="btn btn-success" href="<?php echo site_url('Alternatif/tambahNilaiAlternatif/'.$this->uri->segment(3))?>"><i class="icon icon-plus"></i> Tambah Alternatif</a>
+                     <a class="btn btn-success" href="<?php echo site_url('Alternatif/tambahNilaiAlternatif/'.$this->uri->segment(3))?>"><i class="icon icon-plus"></i> Tambah Nilai Alternatif</a>
                      <a href="<?php echo site_url('Alternatif')?>" class="btn btn-primary">Batal</a>
                     </div>
                     <!--

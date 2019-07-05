@@ -2,7 +2,7 @@
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Edit Alternatif</h4>
+                  <h4 class="card-title">Tambah Alternatif</h4>
                   <p class="card-description">
                     <!--Basic form elements-->
                   </p>
@@ -18,8 +18,8 @@
                           <option value="Non Aktif">Non Aktif</option>
                         </select>
                       </div>
-                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                    <a class="btn btn-light" href="<?php echo site_url('Alternatif')?>">Cancel</a>
+                    <button type="submit" class="btn btn-primary mr-2">Simpan</button>
+                    <a class="btn btn-light" href="<?php echo site_url('Alternatif')?>">Batal</a>
                   </form>
                 </div>
               </div>

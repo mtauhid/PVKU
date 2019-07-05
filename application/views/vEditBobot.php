@@ -25,7 +25,7 @@
                   <form class="forms-sample" method="post" action="<?php echo site_url('Pembobotan/saveEditBobot')?>">
                     <div class="form-group">
                       <label for="exampleSelectGender">Bobot Saat Ini</label>
-                      <input type="text" name="id_kriteria" class="form-control" value="<?php echo $data_skala_kriteria->id_kriteria?>">
+                      <input type="hidden" name="id_kriteria" class="form-control" value="<?php echo $data_skala_kriteria->id_kriteria?>">
                       <input type="text" name="nama_kriteria" class="form-control" value="<?php echo $data_skala_kriteria->nama_kriteria?> - <?php echo $data_skala_kriteria->skala_kriteria." (".$data_skala_kriteria->nilai_skalakriteria./*.$data_skala_kriteria->satuan_kriteria.*/")"?>" readonly>
                     </div>
                     <div class="form-group">
@@ -40,7 +40,7 @@
                         ?>
                       </select>
                     </div>
-                    <input type="text" name="bobot_awal" value="" id="bobot_awal">
+                    <input type="hidden" name="bobot_awal" value="" id="bobot_awal">
                     <button type="submit" class="btn btn-success mr-2">Simpan Perubahan</button>
                     <a class="btn btn-light" href="<?php echo site_url('Pembobotan')?>">Cancel</a>
                   </form>
