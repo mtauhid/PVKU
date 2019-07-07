@@ -17,6 +17,9 @@ class model_kriteria extends CI_Model{
         $this->db->delete($table,$data);
     }
 
+    public function getJumlahKriteria(){
+    	return $this->db->query("SELECT COUNT(id_kriteria) AS totalkriteria FROM tb_kriteria");
+    }
 
     public function getKriteriaByid($id_kriteria){
         $this->db->select('*');

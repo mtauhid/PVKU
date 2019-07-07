@@ -25,6 +25,10 @@ class model_alternatif extends CI_Model{
         $this->db->delete($table,$data);
     }
 
+    public function getJumlahAlternatif(){
+    	return $this->db->query("SELECT COUNT(id_alternatif) AS total FROM tb_alternatif");
+    }
+
     public function getAlternatifByid($id){
         $this->db->select('nama_alternatif, status');
 	    $this->db->from('tb_alternatif');
