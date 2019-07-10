@@ -33,10 +33,9 @@ class Login extends CI_Controller{
                 $sess_array = array(
                     'id_user' => $result->id_user,
                     'nama_user' => $result->nama_user,
-                    'email_user'=>$result->email_user,
                     'username'=>$result->username,
                     'password' => $result->password,
-                    'notelp_user' => $result->notelp_user,
+                    'level_user' => $result->level_user,
                     'login_status'=>true,
                 );
                 

@@ -19,13 +19,14 @@
                               <th style="text-align: center;"></th>
                           </tr>
                         </thead>
-                        <?php
+                        
+                        <tbody>
+                          <?php
                           $no = 1;
                           if(isset($data_bobot)){
                           foreach($data_bobot as $row){
                             
                         ?>
-                        <tbody>
                           <tr>
                               <td  style="text-align: center;"><?php echo $no++ ?></td>
                               <td  style="text-align: center;"><?php echo $row->nama_kriteria ?></td>
@@ -34,12 +35,13 @@
                               <td style="text-align: center;">
                                 <a href="<?php echo base_url("Pembobotan/editBobot/".$row->id_kriteria)?>" class="btn btn-light btn-rounded "><i class="icon-pencil"></i> Edit</a>
                               </td>
+                                
+                        <?php
+                              }
+                          }
+                        ?>
                           </tr>
-                        </tbody>
-                      <?php
-                            }
-                        }
-                      ?>
+                      </tbody>
                       </table>
                     </div>
                   </div>

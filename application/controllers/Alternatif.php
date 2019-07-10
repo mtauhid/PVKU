@@ -3,6 +3,10 @@ class Alternatif extends CI_Controller{
 
 	public function __construct() {
         parent::__construct();
+        if($this->session->userdata('login_status') != TRUE ){
+            $this->session->set_flashdata('notif','LOGIN GAGAL USERNAME ATAU PASSWORD ANDA SALAH !');
+            redirect('Login');
+        };
         $this->load->database();
         $this->load->model('model_alternatif');
     }
@@ -29,6 +33,7 @@ class Alternatif extends CI_Controller{
         $input['status'] = $this->input->post('status_alternatif');
 
         $this->db->insert('tb_alternatif', $input);
+        //$this->model_alternatif->tambah_alternatif_trigger();
         redirect('Alternatif');
 	}
 
@@ -128,6 +133,25 @@ class Alternatif extends CI_Controller{
 		$this->model_alternatif->prosesEditNilaiAlternatif($id_nilai, $data);
 		redirect(site_url('Alternatif/nilaiAlternatif/'.$this->input->post('id_alternatif')));
 	}
+
+	public function get_data_alternatif(){
+		$data_alternatif = $this->model_alternatif->get_alternatif()->result();
+
+		echo json_encode($data_alternatif);
+	}
+
+	/*public function f_alternatif(){
+		$data_nilaialternatif = $this->model_alternatif->getNilaiAlternatif1()->row();
+		$data=array(
+			'data_alternatif'=>$this->model_alternatif->getAlternatif(),
+			'data_nilaialternatif' => $data_nilaialternatif,
+			'content'=>'vAlternatif'
+		);
+		$this->load->view('template/template',$data);
+	}
+	*/
+
+
 
 }
 ?>

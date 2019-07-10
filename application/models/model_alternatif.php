@@ -8,6 +8,10 @@ class model_alternatif extends CI_Model{
         return $this->db->query ("SELECT * from tb_alternatif")->result();
     }
 
+    public function get_alternatif(){
+    	 return $this->db->query ("SELECT * from tb_alternatif ");
+    }
+
     public function getAltenatifById($id_alternatif){
     	return $this->db->query ("SELECT * from tb_alternatif WHERE id_alternatif='$id_alternatif'");
     }

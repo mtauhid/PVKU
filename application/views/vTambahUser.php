@@ -3,22 +3,31 @@
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Tambah Alternatif</h4>
+                  <h4 class="card-title">Tambah User</h4>
                   <p class="card-description">
                     <!--Basic form elements-->
                   </p>
                   <form id="form1" class="forms-sample" method="post">
                     <div class="form-group">
-                      <label for="exampleInputName1">Nama Alternatif</label>
-                      <input type="text" name="nama_alternatif" class="form-control" id="exampleInputName1" placeholder="Nama Alternatif">
+                      <label for="exampleInputName1">Nama Lengkap</label>
+                      <input type="text" name="nama" class="form-control" id="exampleInputName1" placeholder="Nama Lengkap">
                     </div>
                     <div class="form-group">
-                      <label for="exampleSelectGender">Status Alternatif</label>
-                        <select class="form-control" id="exampleSelectGender" name="status_alternatif">
-                          <option value="Aktif" selected>Aktif</option>
-                          <option value="Non Aktif">Non Aktif</option>
-                        </select>
-                      </div>
+                      <label for="exampleInputName1">Username</label>
+                      <input type="text" name="username" class="form-control" id="exampleInputName1" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputName1">Password</label>
+                      <input type="password" name="password" class="form-control" id="exampleInputName1" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputName1">Level</label>
+                      <select name="level" class="form-control">
+                        <option selected disabled>Pilih Level User</option>
+                          <option value='Super Admin'>Super Admin</option>
+                          <option value='Admin'>Admin</option>
+                      </select>
+                    </div>
                     <button type="submit" id="btn-submit" class="btn btn-primary mr-2">Simpan</button>
                     <a class="btn btn-light" href="<?php echo site_url('Alternatif')?>">Batal</a>
                   </form>
@@ -34,11 +43,11 @@ jQuery(document).ready(function () {
            e.preventDefault();
            $.ajax({
                type: "POST",
-               url: "<?php echo base_url()?>Alternatif/saveTambahAlternatif",
+               url: "<?php echo base_url()?>Lainnya/prosesTambahUser",
                data: formData,
                success: function (response) {
                    alert("Data Berhasil Disimpan");
-                   window.location="<?php echo base_url()?>Alternatif";
+                   window.location="<?php echo base_url()?>Lainnya";
                },
                error: function (){
                     $('#btn-submit').button('normal')[0].innerHTML='Save';

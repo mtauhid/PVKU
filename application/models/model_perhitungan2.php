@@ -26,43 +26,24 @@ class model_perhitungan extends CI_Model{
 	}
 
 	public function prosesPerhitungan(){
+		$data_json = array();
         $data_kriteria = array();
-        $bobot_global = array();
-        $data_wp = array();
+        $data_bobot_kriteria = array();
 
         //Ambil Data Alternatif
-        $tb_alternatif = $this->db->get('tb_alternatif')->result_array();
-        for($x=0;$x<count($tb_alternatif);$x++){
-            $data_wp[$x]['id_alternatif'] = $tb_alternatif[$x]['id_alternatif'];
-            $data_wp[$x]['nama_alternatif'] = $tb_alternatif[$x]['nama_alternatif'];
+        $tb_alternatif = $this->db->get('tb_alternatif');
+
+        //Ambil Data Bobot
+        $tb_bobot = $this->db->get('tb_bobot');
+        foreach($tb_bobot->result() as $bobot_kriteria){
+            $data_bobot_kriteria[$bobot_kriteria->id_bobot]=$bobot_kriteria->bobot_akhir;
         }
 
-        $tb_bobot = $this->db->get('tb_bobot')->result_array();
-        for($x=0;$x<count($tb_bobot);$x++){
-            $bobot_kriteria[$tb_bobot[$x]['id_kriteria']]=$tb_bobot[$x]['bobot_akhir'];
+        $tb_kriteria = $this->db->get('tb_kriteria');
+        foreach($tb_kriteria->result() as $kriteria){
+            $data_kriteria[]=$kriteria->id_kriteria;
         }
-
-		//Mengambil Nilai Siswa
-        for($x=0;$x<count($tb_alternatif);$x++){
-            //Mengambil Nilai PerSiswa
-            $this->db->select('*');
-            $this->db->from('data_nilai_alternatif');
-            $this->db->where('id_alternatif',$tb_alternatif[$x]['id_alternatif']);
-            $nilai_alternatif = $this->db->get()->result();
-            //Nilai Vektor S Awal adalah 0
-            $nilai_vektor = 0;
-            //Perulangan Untuk Setiap Nilai Siswa
-            foreach($nilai_alternatif as $nilai_alt){
-                //Menghitung nilai Vektor dengan mengkuadratkan nilai subkriteria dengan bobot global key index subkriteria
-                $nilai_vektor = $nilai_vektor + pow($nilai_alt->nilai,$bobot_kriteria[$nilai_alt->id_kriteria]);
-            }
-            //Mengambah Nilai Vektor S
-            $data_wp[$x]['vektor_s'] = $nilai_vektor;
-            $this->db->set('vektor_s',$data_wp[$x]['vektor_s'])->where('id_alternatif', $tb_alternatif[$x]['id_alternatif'])->update('tb_hitung');
-        }
-
-
-/*
+		
 		$x=0;
         foreach($tb_alternatif->result() as $row_alternatif){
             $data_json[$x]['id_alternatif']=$row_alternatif->id_alternatif;
@@ -95,8 +76,6 @@ class model_perhitungan extends CI_Model{
                 $data_json[$x]['vektor_v'] = $vektor_v;
             }
         }
-        */
 	}
-    
 }
 ?>

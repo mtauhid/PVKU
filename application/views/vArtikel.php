@@ -32,10 +32,10 @@
                               <td style="text-align: center;" ><?php echo $row->tanggal_waktu ?>
                               </td>
                               <td  style="text-align: center;" class="text-right" width="1">
-                                <a class="btn btn-light  btn-sm btn-rounded btn-sx" href="<?php echo site_url('Artikel/'.$row->id_artikel);?>">
+                                <a class="btn btn-light  btn-sm btn-rounded btn-sx" href="<?php echo site_url('Artikel/editArtikel/'.$row->id_artikel);?>">
                                   <i class="icon-pencil"></i> Edit
                                 </a>
-                                <a class="btn btn-light  btn-sm btn-rounded btn-sx" href="<?php echo site_url('Artikel/'.$row->id_artikel);?>">
+                                <a class="btn btn-light  btn-sm btn-rounded btn-sx" href="<?php echo site_url('Artikel/deleteArtikel/'.$row->id_artikel);?>">
                                   <i class="icon-close"></i> Hapus
                                 </button>
                               </td>

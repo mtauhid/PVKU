@@ -39,7 +39,7 @@
             <ul class="navbar-nav navbar-nav-right mr-0">
               <li class="nav-item nav-profile dropdown">
                 <a class="nav-link dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-                  <span class="nav-profile-text"><?php echo $this->session->userdata('nama_user');?></span>
+                  <span class="nav-profile-text"><b><?php echo $this->session->userdata('nama_user');?></b></span>
                   <img src="<?php echo base_url('assets/images/faces/face1.jpg')?>" class="rounded-circle" alt="profile"/>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
@@ -50,14 +50,14 @@
                   </a>
                   
                   <div class="dropdown-divider"></div>
-                  <a href="<?php echo base_url('Login/logout')?>" class="dropdown-item preview-item">
+                  <a href="<?php echo base_url('Lainnya/ubahPassword/'.$this->session->userdata('id_user'))?>" class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
                       <div class="preview-icon bg-inverse-primary">
                         <i class="icon-settings mx-0"></i>
                       </div>
                     </div>
                     <div class="preview-item-content">
-                      <h6 class="preview-subject font-weight-normal text-dark mb-1">Pengaturan Pengguna</h6>
+                      <h6 class="preview-subject font-weight-normal text-dark mb-1">Ubah Password</h6>
                       <p class="font-weight-light small-text mb-0">
                         User Setting
                       </p>

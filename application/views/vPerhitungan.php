@@ -3,16 +3,11 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Pembobotan</h4>
+                  <h4 class="card-title">Perhitungan</h4>
                   <br>
                   <div class="row grid-margin">
                     <div class="col-12">
                       <form method="post" action="<?php echo site_url('Perhitungan/prosesPerhitungan')?>">
-                        <?php
-                        foreach ($data_perhitungan as $row1) {
-                          echo "<input type='text' name='id_alternatif' value='$row1->id_alternatif'>";
-                        }
-                        ?>
                         
                         <button type="submit" class="btn btn-success">Proses Perhitungan</button>
                       </form>

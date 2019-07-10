@@ -1,3 +1,4 @@
+<script src="<?php echo base_url('')?>assets/js/jquery.js"></script>
 <script>
     function get_nilai_skala(){
         var skala_kriteria = $("#skala_kriteria").val();
@@ -22,7 +23,7 @@
                   <p class="card-description">
                     <!--Basic form elements-->
                   </p>
-                  <form class="forms-sample" method="post" action="<?php echo site_url('Pembobotan/saveEditBobot')?>">
+                  <form id="form1" class="forms-sample" method="post">
                     <div class="form-group">
                       <label for="exampleSelectGender">Bobot Saat Ini</label>
                       <input type="hidden" name="id_kriteria" class="form-control" value="<?php echo $data_skala_kriteria->id_kriteria?>">
@@ -41,10 +42,33 @@
                       </select>
                     </div>
                     <input type="hidden" name="bobot_awal" value="" id="bobot_awal">
-                    <button type="submit" class="btn btn-success mr-2">Simpan Perubahan</button>
+                    <button type="submit" id="btn-submit" class="btn btn-success mr-2">Simpan Perubahan</button>
                     <a class="btn btn-light" href="<?php echo site_url('Pembobotan')?>">Cancel</a>
                   </form>
                 </div>
               </div>
             </div>
           </div>
+<script>
+jQuery(document).ready(function () {
+       $('#form1').submit((e) => {
+           const formData = $('#form1').serialize();
+           $('#btn-submit').button('loading');
+           e.preventDefault();
+           $.ajax({
+               type: "POST",
+               url: "<?php echo base_url()?>Pembobotan/saveEditBobot",
+               data: formData,
+               success: function (response) {
+                   alert("Edit Bobot Berhasil");
+                   window.location="<?php echo base_url()?>Pembobotan";
+               },
+               error: function (){
+                    $('#btn-submit').button('normal')[0].innerHTML='Save';
+                    alert("Data gagal disimpan");
+               }
+           });
+       });
+
+    });
+</script>
