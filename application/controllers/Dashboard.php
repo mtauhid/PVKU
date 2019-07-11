@@ -4,7 +4,7 @@ class Dashboard extends CI_Controller{
 		parent::__construct();
 		if($this->session->userdata('login_status') != TRUE ){
             $this->session->set_flashdata('notif','LOGIN GAGAL USERNAME ATAU PASSWORD ANDA SALAH !');
-            redirect('Login');
+            redirect(base_url('Login'));
         };
         $this->load->database();
 		$this->load->model('model_alternatif');

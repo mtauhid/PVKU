@@ -16,7 +16,7 @@
                               <th style="text-align: center;">Kriteria</th>
                               <th style="text-align: center;">Bobot Awal</th>
                               <th style="text-align: center;">Bobot Akhir</th>
-                              <th style="text-align: center;"></th>
+                              <th style="text-align: center;">Edit Bobot</th>
                           </tr>
                         </thead>
                         

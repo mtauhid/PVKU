@@ -63,5 +63,15 @@ class Pembobotan extends CI_Controller{
     echo $data_skala_kriteria->nilai_skalakriteria;
   }
 
+  public function save_edit_bobot(){
+    $id_kriteria = $this->input->post('id_kriteria');
+    $bobot_awal = $this->input->post('bobot_awal');
+    $id_skalakriteria = $this->input->post('skala_kriteria');
+    $data = array('id_skalakriteria' => $id_skalakriteria,'bobot_awal' => $bobot_awal);
+    $return = $this->model_pembobotan->edit($data, $id_kriteria);
+    echo $return;
+    echo json_encode($return);
+  }
+
 }
 ?>

@@ -11,6 +11,16 @@ class model_pembobotan extends CI_Model{
         return $query;
     }
 
+    public function get_data_pembobotan(){
+        $this->db->select('*');
+        $this->db->from('tb_bobot');
+        $this->db->join('tb_kriteria','tb_bobot.id_kriteria=tb_kriteria.id_kriteria');
+        $this->db->join('tb_skalakriteria','tb_bobot.id_skalakriteria=tb_skalakriteria.id_skalakriteria');
+        $query = $this ->db ->get();
+
+        return $query;
+    }
+
     public function getSkalaKriteriaById($id_kriteria){
         $this->db->select('*');
         $this->db->from('tb_skalakriteria');
@@ -67,25 +77,10 @@ class model_pembobotan extends CI_Model{
                     'bobot_akhir' => $kriteria[$no]['bobot_awal'] / $total
                 );
                 $check_bobot = $this->db->set($update)->where('id_kriteria', $kriteria[$no]['id_kriteria'])->update('tb_bobot');
-                /*
-                if ($check_bobot) {
-                    $boolean = TRUE;
-                } else {
-                    $boolean = FALSE;
-                }*/
+
             }
-            /*
-            if ($boolean) {
-                $response = array('status' => 'info','message' => 'Bobot Telah Disimpan');
-                return json_encode($response);
-            } else {
-                $response = array('status' => 'error', 'message' => 'Telah Terjadi kesalahan');
-                return json_encode($response);
-            }
-            */
         } else {
-           // $response = array('status' => 'error', 'message' => 'Telah Terjadi kesalahan');
-            //return json_encode($response);
+           
         }
     }
 }

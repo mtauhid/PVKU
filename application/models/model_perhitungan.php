@@ -25,6 +25,28 @@ class model_perhitungan extends CI_Model{
 		return $query;
 	}
 
+    public function get_data_hasil_perhitungan(){
+        $this->db->select('*');
+        $this->db->from('v_vektor_v');
+        $this->db->join('tb_alternatif','tb_alternatif.id_alternatif=v_vektor_v.id_alternatif');
+        $this->db->order_by('v_vektor_v.vektor_v','DESC');
+        $query = $this ->db ->get();
+
+        return $query;
+    }
+
+    public function get_data_hasil_perhitungan_mobile(){
+        $this->db->select('*');
+        $this->db->from('v_vektor_v');
+        $this->db->join('tb_alternatif','tb_alternatif.id_alternatif=v_vektor_v.id_alternatif');
+        $this->db->order_by('v_vektor_v.vektor_v','DESC');
+        $this->db->limit('10');
+        $query = $this ->db ->get();
+
+        return $query;
+    }
+
+    /*
 	public function prosesPerhitungan(){
         $data_kriteria = array();
         $bobot_global = array();
@@ -34,7 +56,6 @@ class model_perhitungan extends CI_Model{
         $tb_alternatif = $this->db->get('tb_alternatif')->result_array();
         for($x=0;$x<count($tb_alternatif);$x++){
             $data_wp[$x]['id_alternatif'] = $tb_alternatif[$x]['id_alternatif'];
-            $data_wp[$x]['nama_alternatif'] = $tb_alternatif[$x]['nama_alternatif'];
         }
 
         $tb_bobot = $this->db->get('tb_bobot')->result_array();
@@ -46,23 +67,27 @@ class model_perhitungan extends CI_Model{
         for($x=0;$x<count($tb_alternatif);$x++){
             //Mengambil Nilai PerSiswa
             $this->db->select('*');
-            $this->db->from('data_nilai_alternatif');
-            $this->db->where('id_alternatif',$tb_alternatif[$x]['id_alternatif']);
+            $this->db->from('tb_nilaialternatif');
+            $this->db->join('tb_kriteria','tb_kriteria.id_kriteria=tb_nilaialternatif.id_kriteria');
+            $this->db->where('tb_nilaialternatif.id_alternatif',$tb_alternatif[$x]['id_alternatif']);
             $nilai_alternatif = $this->db->get()->result();
             //Nilai Vektor S Awal adalah 0
             $nilai_vektor = 0;
             //Perulangan Untuk Setiap Nilai Siswa
             foreach($nilai_alternatif as $nilai_alt){
                 //Menghitung nilai Vektor dengan mengkuadratkan nilai subkriteria dengan bobot global key index subkriteria
-                $nilai_vektor = $nilai_vektor + pow($nilai_alt->nilai,$bobot_kriteria[$nilai_alt->id_kriteria]);
+                if($nilai_alt->jenis_kriteria == "Benefit"){
+                    $nilai_vektor = $nilai_vektor + pow($nilai_alt->nilai,$bobot_kriteria[$nilai_alt->id_kriteria]);
+                }else if($nilai_alt->jenis_kriteria == "Cost"){
+                    $nilai_vektor = $nilai_vektor + pow($nilai_alt->nilai,-$bobot_kriteria[$nilai_alt->id_kriteria]);
+                }
+                
             }
             //Mengambah Nilai Vektor S
             $data_wp[$x]['vektor_s'] = $nilai_vektor;
             $this->db->set('vektor_s',$data_wp[$x]['vektor_s'])->where('id_alternatif', $tb_alternatif[$x]['id_alternatif'])->update('tb_hitung');
         }
 
-
-/*
 		$x=0;
         foreach($tb_alternatif->result() as $row_alternatif){
             $data_json[$x]['id_alternatif']=$row_alternatif->id_alternatif;
@@ -96,7 +121,6 @@ class model_perhitungan extends CI_Model{
             }
         }
         */
-	}
     
 }
 ?>

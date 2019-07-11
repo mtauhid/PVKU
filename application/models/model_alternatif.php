@@ -16,6 +16,16 @@ class model_alternatif extends CI_Model{
     	return $this->db->query ("SELECT * from tb_alternatif WHERE id_alternatif='$id_alternatif'");
     }
 
+    public function get_alternatif_Byid($id_alternatif){
+    	$this->db->select('*');
+	    $this->db->from('tb_alternatif');
+		$this->db->where('id_alternatif',$id_alternatif);
+
+		$query = $this ->db ->get();
+
+		return $query;
+    }
+
     public function getKriteria(){
         return $this->db->query ("SELECT * from tb_kriteria");
     }
@@ -46,6 +56,10 @@ class model_alternatif extends CI_Model{
 	public function editDataAlternatif($id_alternatif, $data){
 		$this->db->set($data)->where('id_alternatif', $id_alternatif)->update('tb_alternatif');
 		redirect(site_url('Alternatif'));
+	}
+
+	public function edit_data_alternatif($id_alternatif, $data){
+		$this->db->set($data)->where('id_alternatif', $id_alternatif)->update('tb_alternatif');
 	}
 	
 	public function getNilaiAlternatif($id_alternatif){

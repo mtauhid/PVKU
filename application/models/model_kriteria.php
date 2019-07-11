@@ -149,5 +149,13 @@ class model_kriteria extends CI_Model{
 		return $query;
 	}
 
+	public function get_data_kriteria(){
+		$this->db->select('*');
+	    $this->db->from('tb_kriteria');
+		$query = $this ->db ->get();
+
+		return $query;
+	}
+
 }
 ?>

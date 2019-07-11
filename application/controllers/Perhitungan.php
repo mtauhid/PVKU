@@ -11,8 +11,9 @@ class Perhitungan extends CI_Controller{
         $this->load->model('model_perhitungan');
     }
 	public function index(){
-		
+		$data_hasil_perhitungan = $this->model_perhitungan->get_data_hasil_perhitungan()->result();
 		$data=array(
+			'data_hasil_perhitungan' => $data_hasil_perhitungan,
 			'data_perhitungan'=>$this->model_perhitungan->getPerhitungan()->result(),
 			'content'=>'vPerhitungan'
 		);
