@@ -20,7 +20,7 @@ class Dashboard extends CI_Controller{
 		$data_jumlah_kriteria = $this->model_kriteria->getJumlahKriteria()->row();
 		$data_jumlah_user= $this->model_user->getJumlahUser()->row();
 		$data_bobot = $this->model_pembobotan->getDataBobot()->result();
-		$data_perhitungan = $this->model_perhitungan->getRangking()->result();
+		$data_perhitungan = $this->model_perhitungan->get_data_hasil_perhitungan_mobile()->result();
 		$data=array(
 			'data_jumlah_alternatif' => $data_jumlah_alternatif,
 			'data_jumlah_kriteria' => $data_jumlah_kriteria,

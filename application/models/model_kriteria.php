@@ -54,8 +54,8 @@ class model_kriteria extends CI_Model{
 		return $query;
 	}
 
-	public function tambahSkalaKriteria($id_skala_kriteria, $data){
-		$this->db->set($data)->where('id_kriteria', $id_kriteria)->insert('tb_skalakriteria');
+	public function tambahSkalaKriteria($id_kriteria, $data){
+		$this->db->set($data)->insert('tb_skalakriteria');
 	}
 
 	public function prosesEditSkalaKriteria($id_skalakriteria, $data){

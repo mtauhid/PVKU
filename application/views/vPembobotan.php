@@ -5,6 +5,7 @@
                   <h4 class="card-title">Pembobotan</h4>
                   <div class="row grid-margin">
                     <div class="col-12">
+                      <a class="btn btn-success" href="<?php echo site_url('Pembobotan/tambahPembobotan')?>"><i class="icon icon-plus"></i> Tambah Pembobotan</a>
                     </div>
                   </div>
                   <div class="row">

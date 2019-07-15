@@ -1,3 +1,21 @@
+<script src="<?php echo base_url('')?>assets/js/jquery.js"></script>
+<script>
+    function get_nilai_skala(){
+        var skala_kriteria = $("#skala_kriteria").val();
+        $.ajax({
+            type: 'POST',
+            url: "<?php echo site_url('c_pembobotan/get_data_nilai_for_skala');?>",
+            data:"skala_kriteria="+skala_kriteria,
+            success: function(msg){
+                //$("#div_daftarservice").html(msg);
+                //$("#nohp").html(msg);
+                document.getElementById('bobot_awal').value=msg;
+                //get_data_mobil();
+            }
+        });
+    }
+</script>
+
 <!DOCTYPE html>
 <html>
   
@@ -71,31 +89,30 @@
                   <div class='box bordered-box blue-border'>
                     <br>
                     <div class=''>
-                      <form method="post" action="<?php echo base_url('')?>mobile/c_alternatif/proses_edit_alternatif" class='form' style='margin-bottom: 0;'>
+                      <form method="post" action="<?php echo base_url('')?>mobile/c_pembobotan/save_edit_bobot" class='form' style='margin-bottom: 0;'>
                         <fieldset>
                           <div class='col-sm-7 col-sm-offset-1'>
                             <div class='form-group'>
-                              <label>Status</label>
-                              <input type="hidden" name="id_kriteria" class="form-control" value="<?php echo $data_skala_kriteria->id_kriteria?>">
-                      <input type="text" name="nama_kriteria" class="form-control" value="<?php echo $data_skala_kriteria->nama_kriteria?> - <?php echo $data_skala_kriteria->skala_kriteria." (".$data_skala_kriteria->nilai_skalakriteria./*.$data_skala_kriteria->satuan_kriteria.*/")"?>" readonly>
-                                <select name="status" class="form-control">
-                                      option disabled>Pilih Status</option>
-                                 <?php
-                                    if($data_alternatif->status == "Aktif"){
-                                  ?>
-                                  <option value="Aktif" selected>Aktif</option>
-                                  <option value="Non Aktif">Non Aktif</option>
-                                  <?php
-                                    }else{
-                                  ?>
-                                <option value="Aktif">Aktif</option>
-                                <option value="Non Aktif" selected>Non Aktif</option>
-                              <?php } ?>
-                              </select>
+                              <label>Bobot Saat Ini</label>
+                              <input type="hidden" name="id_kriteria" value="<?php echo $data_skala_kriteria->id_kriteria?>">
+                                <input type="text" class="form-control" name="nama_kriteria" value="<?php echo $data_skala_kriteria->nama_kriteria?> - <?php echo $data_skala_kriteria->skala_kriteria." (".$data_skala_kriteria->nilai_skalakriteria./*.$data_skala_kriteria->satuan_kriteria.*/")"?>" readonly>
                             </div>
-                            
                             <div class='form-group'>
-                              <button class="btn btn-success btn-block btn-lg">Ubah Status</button>
+                              <label>Skala Kriteria</label>
+                              <input type="hidden" name="id_alternatif" value="<?php echo $data_skala_kriteria->id_kriteria?>">
+                                <select name="skala_kriteria" class="form-control" id="skala_kriteria" onchange="get_nilai_skala();">
+                                    <option selected disabled>-Pilih Skala Kriteria</option>
+                                    <?php
+                                    foreach($data_skala_kriteria_by_id as $row2){
+
+                                      echo "<option value='$row2->id_skalakriteria'>$row2->skala_kriteria ($row2->nilai_skalakriteria)</option>";
+                                    }
+                                    ?>
+                                  </select>
+                            </div>
+                            <input type="hidden" name="bobot_awal" value="" id="bobot_awal">
+                            <div class='form-group'>
+                              <button type="submit" class="btn btn-success btn-block btn-lg">Ubah Status</button>
                             </div>
                           </div>
                         </fieldset>
@@ -115,7 +132,6 @@
       </section>
     </div>
     <!-- / jquery [required] -->
-    <script src="<?php echo base_url('')?>assets/mobile/javascripts/jquery/jquery.min.js" type="text/javascript"></script>
     <!-- / jquery mobile (for touch events) -->
     <script src="<?php echo base_url('')?>assets/mobile/javascripts/jquery/jquery.mobile.custom.min.js" type="text/javascript"></script>
     <!-- / jquery migrate (for compatibility with new jquery) [required] -->

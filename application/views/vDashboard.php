@@ -91,7 +91,7 @@
                   <div class="mb-3">
                     <p class="d-flex mb-2">
                       <?php echo $row2->nama_alternatif?>
-                      <span class="ml-auto font-weight-bold"><?php echo round($row2->vektor_v, 4)?></span>
+                      <span class="ml-auto font-weight-bold"><?php echo number_format($row2->vektor_v, 4)?></span>
                     </p>
                     <div class="progress progress-xs">
                       <div class="progress-bar bg-primary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>

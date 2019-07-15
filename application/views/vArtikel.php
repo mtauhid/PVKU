@@ -2,10 +2,10 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Artikel</h4>
+                  <h4 class="card-title">Informasi Varietas</h4>
                   <div class="row grid-margin">
                     <div class="col-12">
-                     <a class="btn btn-success" href="<?php echo site_url('Artikel/tambahArtikel')?>"><i class="icon icon-plus"></i> Tambah Artikel</a>
+                     <a class="btn btn-success" href="<?php echo site_url('Artikel/tambahArtikel')?>"><i class="icon icon-plus"></i> Tambah Informasi Varietas</a>
                      <a class="btn btn-success" target="BLANK" href="<?php echo site_url('Artikel/tampilanWebView')?>"><i class="icon icon-eye"></i> Tampilan Web View</a>
                     </div>
                   </div>

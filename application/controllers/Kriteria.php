@@ -35,7 +35,7 @@ class Kriteria extends CI_Controller{
 
 	public function editKriteria(){
 		$id_kriteria = $this->uri->segment(3);
-		$list = $this ->model_kriteria ->getKriteriaByid($id_kriteria)->row();
+		$list = $this->model_kriteria->getKriteriaByid($id_kriteria)->row();
 		$data=array(
 			'data_kriteria'=>$list,
 			'content'=>'vEditKriteria'
@@ -66,7 +66,7 @@ class Kriteria extends CI_Controller{
 
 	public function skalaKriteria(){
 		$id_kriteria = $this->uri->segment(3);
-		$kriteria = $this->model_kriteria->getSkalaKriteria($id_kriteria)->row();
+		$kriteria = $this->model_kriteria->getSkalaKriteriaById($id_kriteria)->row();
 		$list = $this->model_kriteria->getSkalaKriteria($id_kriteria)->result();
 		$data=array(
 			'kriteria' => $kriteria,
@@ -79,7 +79,7 @@ class Kriteria extends CI_Controller{
 	public function tambahSkalaKriteria(){
 		$id_kriteria = $this->uri->segment(3);
 		$data=array(
-			'data_kriteria'=>$this->model_kriteria->getSkalaKriteria($id_kriteria)->row(),
+			'data_kriteria'=>$this->model_kriteria->getSkalaKriteriaById($id_kriteria)->row(),
 			'content'=>'vTambahSkalaKriteria'
 		);
 		$this->load->view('template/template',$data);
@@ -97,6 +97,7 @@ class Kriteria extends CI_Controller{
 		);
 
 		$this->model_kriteria->tambahSkalaKriteria($id_kriteria, $data);
+
 		redirect(site_url('Kriteria/skalaKriteria/'.$id_kriteria));
 	}
 

@@ -63,6 +63,27 @@ class Pembobotan extends CI_Controller{
     echo $data_skala_kriteria->nilai_skalakriteria;
   }
 
+  public function getDataSkalaKriteria(){
+    $id_kriteria=$this->input->post('id_kriteria');
+
+    $data_skala_kriteria=$this->model_pembobotan->getSkalaForBobotById($id_kriteria)->result();
+
+      echo '<select name="skala_kriteria" id="skala_kriteria" required=""> ';
+      echo '<option value="" selected disabled>- Pilih Skala Kriteria</option>';
+      foreach ($data_skala_kriteria as $row ) {
+          echo '<option value="'.$row->id_skalakriteria.'">'.$row->skala_kriteria.'</option>';
+
+      }
+  }
+
+  public function getDataNilaiSkalaKriteria(){
+    $id_skalakriteria=$this->input->post('skala_kriteria');
+
+    $data_skala_kriteria=$this->model_pembobotan->getNilaiSkalaForBobotById($id_skalakriteria)->row();
+
+    echo $data_skala_kriteria->nilai_skalakriteria;
+  }
+
   public function save_edit_bobot(){
     $id_kriteria = $this->input->post('id_kriteria');
     $bobot_awal = $this->input->post('bobot_awal');
@@ -71,6 +92,28 @@ class Pembobotan extends CI_Controller{
     $return = $this->model_pembobotan->edit($data, $id_kriteria);
     echo $return;
     echo json_encode($return);
+  }
+
+  public function tambahPembobotan(){
+    $data_kriteria = $this->model_pembobotan->getKriteria()->result();
+    //$dataskalakriteria = $this->model_pembobotan->getDataSkalaKriteria($id_kriteria)->row();
+    $data=array(
+      'content'=>'vTambahBobot',
+      'data_kriteria' => $data_kriteria,
+      //'data_skala_kriteria'=>$dataskalakriteria
+    );
+
+    $this->load->view('template/template',$data);
+  }
+
+  public function prosesTambahPembobotan(){
+    $id_kriteria = $this->input->post('id_kriteria');
+    $id_skalakriteria = $this->input->post('id_skalakriteria');
+
+    $data = array(
+      'id_kriteria' => $id_kriteria,
+      'id_skalakriteria'=> $id_skalakriteria,
+    );
   }
 
 }

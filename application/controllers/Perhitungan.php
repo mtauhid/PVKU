@@ -9,6 +9,8 @@ class Perhitungan extends CI_Controller{
         };
         $this->load->database();
         $this->load->model('model_perhitungan');
+        $this->load->model('model_alternatif');
+        $this->load->model('model_kriteria');
     }
 	public function index(){
 		$data_hasil_perhitungan = $this->model_perhitungan->get_data_hasil_perhitungan()->result();
@@ -29,6 +31,23 @@ class Perhitungan extends CI_Controller{
 		$return = $this->model_perhitungan->prosesPerhitungan();
       	echo json_encode($return, true);
       	redirect(base_url('Perhitungan'));
+	}
+
+	public function detail_perhitungan(){
+		$alternatif = $this->model_alternatif->getAlternatif();
+		$kriteria = $this->model_kriteria->getKriteria();
+		$vektor_s_v = $this->model_perhitungan->getDetailPerhitungan();
+		$nilai_alternatif = $this->model_alternatif->get_nilai_alternatif()->result();
+
+		$data = array(
+			'data_alternatif' => $alternatif,
+			'data_kriteria' => $kriteria,
+			'data_vektor' => $vektor_s_v,
+			'nilai_alternatif' => $nilai_alternatif
+		);
+
+		$this->load->view('template/detail_perhitungan',$data);
+
 	}
 }
 ?>

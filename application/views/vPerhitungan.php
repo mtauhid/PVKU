@@ -4,7 +4,8 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Perhitungan</h4>
-                  <br>
+
+                     <a class="btn btn-success" target="BLANK" href="<?php echo site_url('Perhitungan/detail_perhitungan')?>"><i class="icon icon-eye"></i> Detail Perhitungan</a>
                   <div class="row grid-margin">
                   </div>
                   <div class="row">
@@ -12,7 +13,8 @@
                       <table id="order-listing"  class="table">
                         <thead>
                           <tr class="bg-light">
-                              <th style="text-align: center;">Rangking</th>
+                              
+                              <th style="text-align: center;">No</th>
                               <th style="text-align: center;">Alternatif</th>
                               <th style="text-align: center;">Vektor S</th>
                               <th style="text-align: center;">Vektor V</th>
@@ -26,10 +28,10 @@
                             
                         ?>
                           <tr>
-                              <td  style="text-align: center;"><?php echo $no++ ?></td>
+                              <td style="text-align: center;"><?php echo $no++ ?></td>
                               <td  style="text-align: center;"><?php echo $row->nama_alternatif ?></td>
-                              <td style="text-align: center;"><?php echo number_format($row->vektor_s,5) ?></td>
-                              <td style="text-align: center;"><b><?php echo $row->vektor_v ?></b></td>
+                              <td style="text-align: center;"><?php echo number_format($row->vektor_s, 9) ?></td>
+                              <td style="text-align: center;"><b><?php echo number_format($row->vektor_v, 9) ?></b></td>
                           </tr>
                           <?php
                             }

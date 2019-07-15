@@ -15,7 +15,7 @@ class model_artikel extends CI_Model{
 
 	public function getArtikel(){
 		$this->db->select('*');
-	    $this->db->from('tb_artikel');
+	    $this->db->from('tb_informasivarietas');
 
 		$query = $this ->db ->get();
 
@@ -24,7 +24,7 @@ class model_artikel extends CI_Model{
 
 	public function getArtikelById($id_artikel){
 		$this->db->select('*');
-	    $this->db->from('tb_artikel');
+	    $this->db->from('tb_informasivarietas');
 	    $this->db->where('id_artikel',$id_artikel);
 		$query = $this ->db ->get();
 
@@ -32,11 +32,11 @@ class model_artikel extends CI_Model{
 	}
 
 	public function tambahArtikel($data){
-		$this->db->set($data)->insert('tb_artikel');
+		$this->db->set($data)->insert('tb_informasivarietas');
 	}
 
 	public function editArtikel($id_artikel, $data){
-		$this->db->set($data)->where('id_artikel', $id_artikel)->update('tb_artikel');
+		$this->db->set($data)->where('id_artikel', $id_artikel)->update('tb_informasivarietas');
 	}
 
 }

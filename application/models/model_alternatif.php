@@ -12,6 +12,10 @@ class model_alternatif extends CI_Model{
     	 return $this->db->query ("SELECT * from tb_alternatif ");
     }
 
+    public function get_biodata(){
+    	 return $this->db->query ("SELECT * from biodata ");
+    }
+
     public function getAltenatifById($id_alternatif){
     	return $this->db->query ("SELECT * from tb_alternatif WHERE id_alternatif='$id_alternatif'");
     }
@@ -89,6 +93,15 @@ class model_alternatif extends CI_Model{
 		$this->db->from('tb_nilaialternatif');
 		$this->db->join('tb_alternatif', 'tb_alternatif.id_alternatif = tb_nilaialternatif.id_alternatif');
 		$this->db->join('tb_kriteria', 'tb_kriteria.id_kriteria = tb_nilaialternatif.id_kriteria');
+		$query = $this->db->get();
+		return $query;
+	}
+
+	public function get_nilai_alternatif(){
+		$this->db->select('*');
+		$this->db->from('tb_nilaialternatif');
+		$this->db->join('tb_kriteria','tb_nilaialternatif.id_kriteria=tb_kriteria.id_kriteria');
+		$this->db->order_by('tb_kriteria.id_kriteria','ASC');
 		$query = $this->db->get();
 		return $query;
 	}

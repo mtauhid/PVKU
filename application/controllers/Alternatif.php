@@ -140,6 +140,12 @@ class Alternatif extends CI_Controller{
 		echo json_encode($data_alternatif);
 	}
 
+	public function get_data_biodata(){
+		$data_biodata = $this->model_alternatif->get_biodata()->result();
+
+		echo json_encode($data_biodata);
+	}
+
 	/*public function f_alternatif(){
 		$data_nilaialternatif = $this->model_alternatif->getNilaiAlternatif1()->row();
 		$data=array(

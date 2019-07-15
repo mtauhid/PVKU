@@ -46,6 +46,14 @@ class model_perhitungan extends CI_Model{
         return $query;
     }
 
+    public function getDetailPerhitungan(){
+        $this->db->select('*');
+        $this->db->from('v_vektor_v');
+        $query = $this ->db ->get();
+
+        return $query;
+    }
+
     /*
 	public function prosesPerhitungan(){
         $data_kriteria = array();

@@ -16,9 +16,9 @@
               <a href="<?php echo site_url('Perhitungan')?>" class="nav-link"><i class="link-icon icon-calculator"></i><span class="menu-title">Perhitungan</span></a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo site_url('Artikel')?>" class="nav-link"><i class="link-icon  icon-book-open"></i><span class="menu-title">Artikel</span></a>
+              <a href="<?php echo site_url('Artikel')?>" class="nav-link"><i class="link-icon  icon-book-open"></i><span class="menu-title">Informasi Varietas</span></a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo site_url('Lainnya')?>" class="nav-link"><i class="link-icon  icon-menu"></i><span class="menu-title">Lainnya</span></a>
+              <a href="<?php echo site_url('Lainnya')?>" class="nav-link"><i class="link-icon  icon-menu"></i><span class="menu-title">User</span></a>
             </li>
           </ul>

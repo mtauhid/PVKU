@@ -64,7 +64,7 @@
                     <div class='box-header'>
                       <div class='title'>
                         <b>
-                          Status Alternatif
+                          Kriteria
                         </b>
                         
                       </div>
