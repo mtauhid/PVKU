@@ -16,6 +16,7 @@
                               <th style="text-align: center;">No</th>
                               <th style="text-align: center;">Nama Kriteria</th>
                               <th style="text-align: center;">Jenis Kriteria</th>
+                              <th style="text-align: center;">Satuan Kriteria</th>
                               <th style="text-align: center;">Action</th>
                           </tr>
                         </thead>
@@ -29,6 +30,7 @@
                               <td  style="text-align: center;"><?php echo $no++ ?></td>
                               <td  style="text-align: center;"><?php echo $row->nama_kriteria ?></td>
                               <td style="text-align: center;" title="Edit Skala Kriteria"><?php echo $row->jenis_kriteria ?></td>
+                              <td style="text-align: center;" title="Edit Skala Kriteria"><?php echo $row->satuan_kriteria ?></td>
                               <td  style="text-align: center;" width="1">
                                 <a class="btn btn-light btn-rounded" href="<?php echo site_url('Kriteria/skalaKriteria/'.$row->id_kriteria);?>">Skala Kriteria
                                 </a>

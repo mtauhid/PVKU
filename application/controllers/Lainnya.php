@@ -67,5 +67,15 @@ class Lainnya extends CI_Controller{
 		);
 		$this->model_user->editUser($data, $id_user);
 	}
+
+	public function user_setting(){
+		$id_user = $this->uri->segment(3);
+		$data_user = $this->model_user->getUserById($id_user)->row();
+		$data = array(
+			'data_user'=> $data_user,
+			'content' => 'vUserSetting'
+		);
+		$this->load->view('template/template',$data);
+	}
 }
 ?>

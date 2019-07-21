@@ -7,8 +7,8 @@ class model_perhitungan extends CI_Model{
 
 	public function getPerhitungan(){
 		$this->db->select('*');
-	    $this->db->from('tb_hitung');
-	    $this->db->join('tb_alternatif', 'tb_alternatif.id_alternatif=tb_hitung.id_alternatif');
+	    $this->db->from('v_vektor_v');
+	    $this->db->join('tb_alternatif', 'tb_alternatif.id_alternatif=v_vektor_v.id_alternatif');
 
 		$query = $this ->db ->get();
 
@@ -40,7 +40,7 @@ class model_perhitungan extends CI_Model{
         $this->db->from('v_vektor_v');
         $this->db->join('tb_alternatif','tb_alternatif.id_alternatif=v_vektor_v.id_alternatif');
         $this->db->order_by('v_vektor_v.vektor_v','DESC');
-        $this->db->limit('10');
+        $this->db->limit('5');
         $query = $this ->db ->get();
 
         return $query;

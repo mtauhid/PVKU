@@ -21,7 +21,7 @@
         $.ajax({
             type: 'POST',
             url: "<?php echo site_url('Pembobotan/getDataNilaiSkalaKriteria');?>",
-            data:"id_skalakriteria="+skala_kriteria,
+            data:"skala_kriteria="+skala_kriteria,
             success: function(msg){
                 //$("#div_daftarservice").html(msg);
                 //$("#skala_kriteria").html(msg);
@@ -35,13 +35,13 @@
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Edit Pembobotan</h4>
+                  <h4 class="card-title">Tambah Pembobotan</h4>
                   <p class="card-description">
                     <!--Basic form elements-->
                   </p>
-                  <form id="form1" class="forms-sample" method="post">
+                  <form action="<?php echo site_url('Pembobotan/prosesTambahPembobotan')?>" class="forms-sample" method="post">
                     <div class="form-group">
-                      <label for="exampleSelectGender">Bobot Saat Ini</label>
+                      <label for="exampleSelectGender">Pili Kriteria</label>
                       <select class="form-control" id="id_kriteria" name="id_kriteria"  onchange="get_skala_kriteria();">
                         <option selected disabled>-Pilih Kriteria</option>
                         <?php
@@ -54,39 +54,16 @@
                     </div>
                     <div class="form-group">
                       <label for="exampleSelectGender">Skala Kriteria</label>
-                      <select name="skala_kriteria" class="form-control" id="skala_kriteria" onchange="get_bobot_awal();">
+                      <select name="skala_kriteria" id="skala_kriteria" class="form-control"  onchange="get_bobot_awal();">
                         <option selected disabled>-Pilih Skala Kriteria</option>
                         
                       </select>
                     </div>
-                    <input type="text" name="bobot_awal" value="" id="bobot_awal">
-                    <button type="submit" id="btn-submit" class="btn btn-success mr-2">Simpan Perubahan</button>
+                    <input type="hidden" name="bobot_awal" value="" id="bobot_awal">
+                    <button type="submit" id="btn-submit" class="btn btn-success mr-2">Tambah</button>
                     <a class="btn btn-light" href="<?php echo site_url('Pembobotan')?>">Cancel</a>
                   </form>
                 </div>
               </div>
             </div>
           </div>
-<script>
-jQuery(document).ready(function () {
-       $('#form1').submit((e) => {
-           const formData = $('#form1').serialize();
-           $('#btn-submit').button('loading');
-           e.preventDefault();
-           $.ajax({
-               type: "POST",
-               url: "<?php echo base_url()?>Pembobotan/saveEditBobot",
-               data: formData,
-               success: function (response) {
-                   alert("Edit Bobot Berhasil");
-                   window.location="<?php echo base_url()?>Pembobotan";
-               },
-               error: function (){
-                    $('#btn-submit').button('normal')[0].innerHTML='Save';
-                    alert("Data gagal disimpan");
-               }
-           });
-       });
-
-    });
-</script>

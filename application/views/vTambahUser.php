@@ -29,7 +29,7 @@
                       </select>
                     </div>
                     <button type="submit" id="btn-submit" class="btn btn-primary mr-2">Simpan</button>
-                    <a class="btn btn-light" href="<?php echo site_url('Alternatif')?>">Batal</a>
+                    <a class="btn btn-light" href="<?php echo site_url('Lainnya')?>">Batal</a>
                   </form>
                 </div>
               </div>

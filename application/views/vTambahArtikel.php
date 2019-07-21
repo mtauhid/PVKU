@@ -16,7 +16,6 @@
                         <textarea id="simpleMde" name="konten">
                         </textarea>
                       </div>
-                      <input type="hidden" name="tanggal_waktu" value="<?php echo date('y-m-d h:i:s')?>">
                     <button type="submit" class="btn btn-primary mr-2">Simpan</button>
                     <a class="btn btn-light" href="<?php echo site_url('Alternatif')?>">Batal</a>
                   </form>

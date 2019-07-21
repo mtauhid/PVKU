@@ -6,7 +6,6 @@
                   <div class="row grid-margin">
                     <div class="col-12">
                      <a class="btn btn-success" href="<?php echo site_url('Artikel/tambahArtikel')?>"><i class="icon icon-plus"></i> Tambah Informasi Varietas</a>
-                     <a class="btn btn-success" target="BLANK" href="<?php echo site_url('Artikel/tampilanWebView')?>"><i class="icon icon-eye"></i> Tampilan Web View</a>
                     </div>
                   </div>
                   <div class="row">
@@ -15,8 +14,7 @@
                         <thead>
                           <tr class="bg-light">
                               <th style="text-align: center;">No</th>
-                              <th style="text-align: center;">Judul</th>
-                              <th style="text-align: center;">Tanggal</th>
+                              <th style="text-align: left;">Judul</th>
                               <th style="text-align: center;">Action</th>
                           </tr>
                         </thead>
@@ -28,9 +26,7 @@
                         ?>
                           <tr>
                               <td  style="text-align: center;"><?php echo $no++ ?></td>
-                              <td  style="text-align: center;"><?php echo $row->judul ?></td>
-                              <td style="text-align: center;" ><?php echo $row->tanggal_waktu ?>
-                              </td>
+                              <td  style="text-align: left;"><?php echo $row->judul ?></td>
                               <td  style="text-align: center;" class="text-right" width="1">
                                 <a class="btn btn-light  btn-sm btn-rounded btn-sx" href="<?php echo site_url('Artikel/editArtikel/'.$row->id_artikel);?>">
                                   <i class="icon-pencil"></i> Edit

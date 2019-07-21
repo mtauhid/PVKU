@@ -9,7 +9,7 @@
                   <form class="forms-sample" method="post" action="<?php echo site_url('Kriteria/saveTambahKriteria')?>">
                     <div class="form-group">
                       <label for="exampleInputName1">Nama Kriteria</label>
-                      <input type="text" name="nama_kriteria" class="form-control" id="exampleInputName1" placeholder="Nama Alternatif">
+                      <input type="text" name="nama_kriteria" class="form-control" id="exampleInputName1" placeholder="Nama Kriteria">
                     </div>
                     <div class="form-group">
                       <label for="exampleSelectGender">Jenis Kriteria</label>
@@ -17,6 +17,10 @@
                           <option value="Benefit" selected>Benefit</option>
                           <option value="Cost">Cost</option>
                         </select>
+                      </div>
+                    <div class="form-group">
+                      <label for="exampleSelectGender">Satuan Kriteria</label>
+                        <input type="text" name="satuan_kriteria" class="form-control" id="exampleInputName1" placeholder="Contoh : Gram/Biji">
                       </div>
                     <button type="submit" class="btn btn-primary mr-2">Simpan</button>
                     <a class="btn btn-light" href="<?php echo site_url('Kriteria')?>">Batal</a>

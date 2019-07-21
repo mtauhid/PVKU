@@ -2,7 +2,7 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Print Data</h4>
+                  <!-- <h4 class="card-title">Print Data</h4>
                   <div class="row grid-margin">
                     <div class="col-12">
                      <div class="btn-group">
@@ -21,8 +21,8 @@
                     </div>
                     </div>
                   </div>
-                  <br>
-                  <h4 class="card-title">Settings User</h4>
+                  <br> -->
+                  <h4 class="card-title">User Administrator</h4>
                   <div class="row grid-margin">
                     <div class="col-12">
                       <?php
@@ -44,9 +44,22 @@
                           <tr class="bg-light">
                               <th style="text-align: center;">No</th>
                               <th style="text-align: center;">Nama User</th>
-                              <th style="text-align: center;">Username</th>
-                              <th style="text-align: center;">Level User</th>
                               <?php
+                              
+                              if($this->session->userdata('level_user') == "Super Admin"){
+                              ?>
+                              <th style="text-align: center;">Username</th>
+                              <?php
+                              }else if($this->session->userdata('level_user') == "Admin"){
+
+                              }
+                              
+                              ?>
+                              
+                              <th style="text-align: center;">Level User</th>
+                              
+                              <?php
+                              
                               if($this->session->userdata('level_user') == "Super Admin"){
                               ?>
                               <th style="text-align: center;">Action</th>
@@ -54,6 +67,7 @@
                               }else if($this->session->userdata('level_user') == "Admin"){
 
                               }
+                              
                               ?>
                           </tr>
                         </thead>
@@ -66,8 +80,20 @@
                           <tr>
                               <td  style="text-align: center;"><?php echo $no++ ?></td>
                               <td  style="text-align: center;"><?php echo $row->nama_user ?></td>
+                              <?php
+                              
+                              if($this->session->userdata('level_user') == "Super Admin"){
+                              ?>
                               <td style="text-align: center;" ><?php echo $row->username ?>
-                              <td style="text-align: center;" ><?php echo $row->level_user ?>
+                              </td>
+                              <?php
+                              }else if($this->session->userdata('level_user') == "Admin"){
+
+                              }
+                              
+                              ?>
+
+                              <td style="text-align: center;" ><?php echo $row->level ?>
                               </td>
                               <?php
                               if($this->session->userdata('level_user') == "Super Admin"){
@@ -79,7 +105,6 @@
                                 <a class="btn btn-light  btn-sm btn-rounded btn-sx" href="<?php echo site_url('Lainnya/hapusUser/'.$row->id_user);?>">
                                   <i class="icon-close"></i> Hapus
                                 </button>
-                              </td>
                               <?php
                               }else if($this->session->userdata('level_user') == "Admin"){
 

@@ -35,6 +35,7 @@
                               <td style="text-align: center;"><b><?php echo $row->bobot_akhir ?></b></td>
                               <td style="text-align: center;">
                                 <a href="<?php echo base_url("Pembobotan/editBobot/".$row->id_kriteria)?>" class="btn btn-light btn-rounded "><i class="icon-pencil"></i> Edit</a>
+                                <a href="<?php echo base_url("Pembobotan/hapusBobot/".$row->id_bobot)?>" class="btn btn-light btn-rounded "><i class="icon-pencil"></i> Hapus</a>
                               </td>
                                 
                         <?php

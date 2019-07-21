@@ -31,11 +31,9 @@ class Artikel extends CI_Controller{
 	public function prosesTambahArtikel(){
 		$judul = $this->input->post('judul');
 		$konten = $this->input->post('konten');
-		$tgl = $this->input->post('tanggal_waktu');
 		$data = array(
 			'judul' => $judul,
-			'konten' => $konten,
-			'tanggal_waktu' => $tgl
+			'konten' => $konten
 		);
 
 		$this->model_artikel->tambahArtikel($data);
@@ -56,11 +54,9 @@ class Artikel extends CI_Controller{
 		$id_artikel = $this->input->post('id_artikel');
 		$judul = $this->input->post('judul');
 		$konten = $this->input->post('konten');
-		$tgl = $this->input->post('tanggal_waktu');
 		$data = array(
 			'judul' => $judul,
-			'konten' => $konten,
-			'tanggal_waktu' => $tgl
+			'konten' => $konten
 		);
 
 		$this->model_artikel->editArtikel( $id_artikel, $data);
@@ -88,7 +84,7 @@ class Artikel extends CI_Controller{
 
 	function deleteArtikel(){
 		$id_artikel = $this->uri->segment(3);
-        $this->model_artikel->deleteData('tb_artikel',$id_artikel);
+        $this->model_artikel->deleteData($id_artikel);
         redirect("Artikel");
 
 	}

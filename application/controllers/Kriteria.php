@@ -28,6 +28,7 @@ class Kriteria extends CI_Controller{
 	public function saveTambahKriteria(){
 		$input['nama_kriteria'] = $this->input->post('nama_kriteria');
         $input['jenis_kriteria'] = $this->input->post('jenis_kriteria');
+        $input['satuan_kriteria'] = $this->input->post('satuan_kriteria');
 
         $this->db->insert('tb_kriteria', $input);
         redirect('Kriteria');
@@ -47,10 +48,12 @@ class Kriteria extends CI_Controller{
 		$id_kriteria = $this->input->post('id_kriteria');
 		$nama_kriteria = $this->input->post('nama_kriteria');
 		$jenis_kriteria = $this->input->post('jenis_kriteria');
+		$satuan_kriteria = $this->input->post('satuan_kriteria');
 
 		$data = array(
 			'nama_kriteria' => $nama_kriteria,
-			'jenis_kriteria' => $jenis_kriteria
+			'jenis_kriteria' => $jenis_kriteria,
+			'satuan_kriteria' => $satuan_kriteria
 		);
 
 		$this->model_kriteria->editDataKriteria($id_kriteria, $data);

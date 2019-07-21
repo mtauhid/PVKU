@@ -61,8 +61,17 @@ class model_pembobotan extends CI_Model{
     public function getNilaiSkalaForBobotById($id_skalakriteria){
         $this->db->select('*');
         $this->db->from('tb_skalakriteria');
-        
-        $this->db->where('id_skalakriteria',$id_skalakriteria);
+        $this->db->where('id_skalakriteria', $id_skalakriteria);
+        $query = $this ->db ->get();
+
+        return $query;
+    }
+
+    public function getSkalaKriteriaByIdApi($id_kriteria){
+        $this->db->select('id_skalakriteria,skala_kriteria,nilai_skalakriteria');
+        $this->db->from('tb_skalakriteria');
+        $this->db->join('tb_kriteria','tb_kriteria.id_kriteria=tb_skalakriteria.id_kriteria');
+        $this->db->where('tb_kriteria.id_kriteria',$id_kriteria);
         $query = $this ->db ->get();
 
         return $query;
@@ -76,6 +85,14 @@ class model_pembobotan extends CI_Model{
         $query = $this ->db ->get();
 
         return $query;
+    }
+
+    public function tambahPembobotan($data){
+        $this->db->set($data)->insert('tb_bobot');
+    }
+
+    public function hapusPembobotan($id_bobot){
+        $this->db->where('id_bobot',$id_bobot)->delete('tb_bobot');
     }
 
 	function edit($data, $id_kriteria) {
@@ -97,6 +114,10 @@ class model_pembobotan extends CI_Model{
         // } else {
            
         // }
+    }
+
+    function update_pembobotan($data, $id_bobot) {
+        $this->db->set($data)->where('id_bobot', $id_bobot)->update('tb_bobot');
     }
 }
 ?>

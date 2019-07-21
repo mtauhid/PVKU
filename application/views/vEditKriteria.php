@@ -29,7 +29,10 @@
                         <?php } ?>
                         </select>
                       </div>
-                     
+                      <div class="form-group">
+                      <label for="exampleInputName1">Satuan Kriteria</label>
+                      <input type="text" class="form-control" name="satuan_kriteria" id="exampleInputName1" value="<?php echo $data_kriteria->satuan_kriteria ?>">
+                    </div>
                     <button type="submit" class="btn btn-primary mr-2">Simpan Perubahan</button>
                     <a href="<?php echo site_url('Kriteria')?>" class="btn btn-outline-primary">Batal</a>
                   </form>

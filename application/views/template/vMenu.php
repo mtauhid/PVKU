@@ -19,6 +19,6 @@
               <a href="<?php echo site_url('Artikel')?>" class="nav-link"><i class="link-icon  icon-book-open"></i><span class="menu-title">Informasi Varietas</span></a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo site_url('Lainnya')?>" class="nav-link"><i class="link-icon  icon-menu"></i><span class="menu-title">User</span></a>
+              <a href="<?php echo site_url('Lainnya')?>" class="nav-link"><i class="link-icon  icon-user"></i><span class="menu-title">User</span></a>
             </li>
           </ul>

@@ -7,7 +7,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Flare Premium Bootstrap Admin Dashboard Template</title>
+  <title>SPK Varietas Kedelai Unggul</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="<?php echo base_url('')?>assets/vendors/iconfonts/simple-line-icon/css/simple-line-icons.css">
   <link rel="stylesheet" href="<?php echo base_url('')?>assets/vendors/css/vendor.bundle.base.css">
@@ -18,7 +18,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="<?php echo base_url('')?>assets/css/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="<?php echo base_url('')?>assets/images/favicon.png" />
+  <link rel="shortcut icon" href="<?php echo base_url('')?>assets/images/logospk.png" />
 </head>
 
 <body>

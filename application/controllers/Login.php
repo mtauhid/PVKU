@@ -35,7 +35,7 @@ class Login extends CI_Controller{
                     'nama_user' => $result->nama_user,
                     'username'=>$result->username,
                     'password' => $result->password,
-                    'level_user' => $result->level_user,
+                    'level_user' => $result->level,
                     'login_status'=>true,
                 );
                 

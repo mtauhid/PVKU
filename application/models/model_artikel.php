@@ -5,12 +5,8 @@ class model_artikel extends CI_Model{
 		parent::__construct();
 	}
 
-	function deleteData($table,$data){
-        $list = $this->model_kriteria->getSkalaKriteria2($id_skalakriteria)->row();
-		$id['id_skalakriteria'] = $list;
-		$id_kriteria = $this->uri->segment(3);
-        $this->model_kriteria->deleteData('tb_skalakriteria',$id);
-        redirect("Kriteria/skalaKriteria/".$id_kriteria);
+	function deleteData($id_artikel){
+        $this->db->where('id_artikel',$id_artikel)->delete('tb_informasivarietas');
     }
 
 	public function getArtikel(){

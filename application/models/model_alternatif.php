@@ -97,12 +97,24 @@ class model_alternatif extends CI_Model{
 		return $query;
 	}
 
+
 	public function get_nilai_alternatif(){
 		$this->db->select('*');
 		$this->db->from('tb_nilaialternatif');
 		$this->db->join('tb_kriteria','tb_nilaialternatif.id_kriteria=tb_kriteria.id_kriteria');
 		$this->db->order_by('tb_kriteria.id_kriteria','ASC');
 		$query = $this->db->get();
+		return $query;
+	}
+
+	//DETAIL ALTERNATIF MBILE
+	public function get_detail_nilai_alternatif($id){
+		$this->db->select('id_nilai,nilai,nama_kriteria,satuan_kriteria');
+		$this->db->from('tb_nilaialternatif');
+		$this->db->join('tb_kriteria','tb_nilaialternatif.id_kriteria=tb_kriteria.id_kriteria');
+		$this->db->where('tb_nilaialternatif.id_alternatif',$id);
+		$this->db->order_by('tb_kriteria.id_kriteria','ASC');
+		$query = $this->db->get()->result();
 		return $query;
 	}
 

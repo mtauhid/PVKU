@@ -69,7 +69,7 @@ class Pembobotan extends CI_Controller{
     $data_skala_kriteria=$this->model_pembobotan->getSkalaForBobotById($id_kriteria)->result();
 
       echo '<select name="skala_kriteria" id="skala_kriteria" required=""> ';
-      echo '<option value="" selected disabled>- Pilih Skala Kriteria</option>';
+      echo '<option value="" selected disabled>-Pilih Skala Kriteria</option>';
       foreach ($data_skala_kriteria as $row ) {
           echo '<option value="'.$row->id_skalakriteria.'">'.$row->skala_kriteria.'</option>';
 
@@ -108,12 +108,25 @@ class Pembobotan extends CI_Controller{
 
   public function prosesTambahPembobotan(){
     $id_kriteria = $this->input->post('id_kriteria');
-    $id_skalakriteria = $this->input->post('id_skalakriteria');
+    $id_skalakriteria = $this->input->post('skala_kriteria');
+    $nilai = $this->input->post('bobot_awal');
 
     $data = array(
       'id_kriteria' => $id_kriteria,
       'id_skalakriteria'=> $id_skalakriteria,
+      'bobot_awal' => $nilai
     );
+
+    $this->model_pembobotan->tambahPembobotan($data);
+    redirect(base_url('Pembobotan'));
+  }
+
+  public function hapusBobot(){
+    $id_bobot = $this->uri->segment(3);
+
+    $this->model_pembobotan->hapusPembobotan($id_bobot);
+
+    redirect(base_url('Pembobotan'));
   }
 
 }

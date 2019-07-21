@@ -26,10 +26,10 @@
                       <select name="level" class="form-control">
                         <option disabled>Pilih Level User</option>
                         <?php
-                        if($data_user->level_user == "Super Admin"){
+                        if($data_user->level == "Super Admin"){
                           echo "<option value='Super Admin' selected>Super Admin</option>";
                           echo "<option value='Admin'>Admin</option>";
-                        }else if($data_user->level_user == "Admin"){
+                        }else if($data_user->level == "Admin"){
                           echo "<option value='Super Admin'>Super Admin</option>";
                           echo "<option value='Admin' selected>Admin</option>";
                         }

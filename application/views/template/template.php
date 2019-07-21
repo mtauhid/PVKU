@@ -22,7 +22,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="<?php echo base_url('')?>assets/css/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="<?php echo base_url('')?>assets/images/favicon.png" />
+  <link rel="shortcut icon" href="<?php echo base_url('')?>assets/images/logospk.png" />
 </head>
 
 <body>
@@ -50,14 +50,14 @@
                   </a>
                   
                   <div class="dropdown-divider"></div>
-                  <a href="<?php echo base_url('Lainnya/ubahPassword/'.$this->session->userdata('id_user'))?>" class="dropdown-item preview-item">
+                  <a href="<?php echo base_url('Lainnya/user_setting/'.$this->session->userdata('id_user'))?>" class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
                       <div class="preview-icon bg-inverse-primary">
                         <i class="icon-settings mx-0"></i>
                       </div>
                     </div>
                     <div class="preview-item-content">
-                      <h6 class="preview-subject font-weight-normal text-dark mb-1">Ubah Password</h6>
+                      <h6 class="preview-subject font-weight-normal text-dark mb-1">Pengaturan User</h6>
                       <p class="font-weight-light small-text mb-0">
                         User Setting
                       </p>

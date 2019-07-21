@@ -4,8 +4,7 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Perhitungan</h4>
-
-                     <a class="btn btn-success" target="BLANK" href="<?php echo site_url('Perhitungan/detail_perhitungan')?>"><i class="icon icon-eye"></i> Detail Perhitungan</a>
+                     <!-- <a class="btn btn-success" target="BLANK" href="<?php echo site_url('Perhitungan/detail_perhitungan')?>"><i class="icon icon-eye"></i> Detail Perhitungan</a> -->
                   <div class="row grid-margin">
                   </div>
                   <div class="row">
@@ -14,7 +13,7 @@
                         <thead>
                           <tr class="bg-light">
                               
-                              <th style="text-align: center;">No</th>
+                              <th style="text-align: center;">Rangking</th>
                               <th style="text-align: center;">Alternatif</th>
                               <th style="text-align: center;">Vektor S</th>
                               <th style="text-align: center;">Vektor V</th>
