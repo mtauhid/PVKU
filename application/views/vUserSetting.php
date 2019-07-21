@@ -39,7 +39,6 @@
                   <p class="card-description">
                     <!--Basic form elements-->
                   </p>
-                  <form id="form1" class="forms-sample" method="post">
                     <div class="form-group">
                       <label for="exampleInputName1">Nama Lengkap</label>
                       <input type="hidden" name="id_user" value="<?php echo $data_user->id_user?>">
