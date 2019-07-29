@@ -14,6 +14,10 @@
                       <input type="text" name="skala_kriteria" class="form-control" id="exampleInputName1" placeholder="Skala Kriteria" value="<?php echo $data_skala_kriteria->skala_kriteria?>">
                     </div>
                     <div class="form-group">
+                      <label for="exampleSelectGender">Range Skala</label>
+                        <input type="text" name="range_skala" class="form-control" id="exampleInputName1" placeholder="Nilai Skala" value="<?php echo $data_skala_kriteria->range_skala?>">
+                      </div>
+                    <div class="form-group">
                       <label for="exampleSelectGender">Nilai Skala</label>
                         <input type="text" name="nilai_skala" class="form-control" id="exampleInputName1" placeholder="Nilai Skala" value="<?php echo $data_skala_kriteria->nilai_skalakriteria?>">
                       </div>

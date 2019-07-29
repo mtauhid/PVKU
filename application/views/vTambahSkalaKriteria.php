@@ -10,11 +10,15 @@
                     <div class="form-group">
                       <label for="exampleInputName1">Skala Kriteria</label>
 
-                      <input type="" name="id_kriteria" class="form-control" id="exampleInputName1" placeholder="Nama Alternatif" value="<?php echo $this->uri->segment(3)?>">
+                      <input type="hidden" name="id_kriteria" class="form-control" id="exampleInputName1" placeholder="Nama Alternatif" value="<?php echo $this->uri->segment(3)?>">
 
                       <input type="text" name="skala_kriteria" class="form-control" id="exampleInputName1" placeholder="Skala Kriteria">
 
                     </div>
+                    <div class="form-group">
+                      <label for="exampleSelectGender">Range Skala</label>
+                        <input type="text" name="range_skala" class="form-control" id="exampleInputName1" placeholder="Range Skala">
+                      </div>
                     <div class="form-group">
                       <label for="exampleSelectGender">Nilai Skala</label>
                         <input type="text" name="nilai_skala" class="form-control" id="exampleInputName1" placeholder="Nilai Skala">

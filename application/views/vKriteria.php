@@ -5,7 +5,7 @@
                   <h4 class="card-title">Kriteria</h4>
                   <div class="row grid-margin">
                     <div class="col-12">
-                     <a class="btn btn-success" href="<?php echo site_url('Kriteria/tambahKriteria')?>"><i class="icon icon-plus"></i> Tambah Kriteria</a>
+                     <!-- <a class="btn btn-success" href="<?php echo site_url('Kriteria/tambahKriteria')?>"><i class="icon icon-plus"></i> Tambah Kriteria</a> -->
                     </div>
                   </div>
                   <div class="row">
@@ -17,7 +17,7 @@
                               <th style="text-align: center;">Nama Kriteria</th>
                               <th style="text-align: center;">Jenis Kriteria</th>
                               <th style="text-align: center;">Satuan Kriteria</th>
-                              <th style="text-align: center;">Action</th>
+                              <th colspan="3" style="text-align: center;width: 1%">Action</th>
                           </tr>
                         </thead>
                         
@@ -32,13 +32,19 @@
                               <td style="text-align: center;" title="Edit Skala Kriteria"><?php echo $row->jenis_kriteria ?></td>
                               <td style="text-align: center;" title="Edit Skala Kriteria"><?php echo $row->satuan_kriteria ?></td>
                               <td  style="text-align: center;" width="1">
-                                <a class="btn btn-light btn-rounded" href="<?php echo site_url('Kriteria/skalaKriteria/'.$row->id_kriteria);?>">Skala Kriteria
+                                <a class="btn btn-inverse-light btn-rounded" href="<?php echo site_url('Kriteria/skalaKriteria/'.$row->id_kriteria);?>">Skala Kriteria
                                 </a>
+                              </td>
+                              <td>
                                 <a class="btn btn-light btn-rounded" href="<?php echo site_url('Kriteria/editKriteria/'.$row->id_kriteria);?>"><i class="icon-pencil btn-xs"></i>
                                 </a>
+                              </td>
+                              <td>
                                 <a class="btn btn-light btn-rounded" href="<?php echo site_url('Kriteria/deleteKriteria/'.$row->id_kriteria);?>">
                                   <i class="icon-trash btn-xs"></i>
                                 </a>
+                              </td>
+                                
                               </td>
                           </tr>
                           <?php 

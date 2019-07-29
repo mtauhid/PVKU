@@ -42,7 +42,7 @@
                   <form action="<?php echo site_url('Pembobotan/prosesTambahPembobotan')?>" class="forms-sample" method="post">
                     <div class="form-group">
                       <label for="exampleSelectGender">Pili Kriteria</label>
-                      <select class="form-control" id="id_kriteria" name="id_kriteria"  onchange="get_skala_kriteria();">
+                      <select class="form-control" id="id_kriteria" name="id_kriteria"  onchange="get_skala_kriteria();" required>
                         <option selected disabled>-Pilih Kriteria</option>
                         <?php
                         foreach($data_kriteria as $row1){
@@ -54,7 +54,7 @@
                     </div>
                     <div class="form-group">
                       <label for="exampleSelectGender">Skala Kriteria</label>
-                      <select name="skala_kriteria" id="skala_kriteria" class="form-control"  onchange="get_bobot_awal();">
+                      <select name="skala_kriteria" id="skala_kriteria" class="form-control"  onchange="get_bobot_awal();" required>
                         <option selected disabled>-Pilih Skala Kriteria</option>
                         
                       </select>

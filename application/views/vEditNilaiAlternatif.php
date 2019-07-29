@@ -2,7 +2,7 @@
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Edit Nilai Alternatif</h4>
+                  <h4 class="card-title">Edit Nilai Alternatif <b><?php echo $data_nilaialternatif->nama_alternatif?></b></h4>
                   <br>
                   <form class="forms-sample" action="<?php echo site_url('Alternatif/prosesEditNilaiAlternatif')?>" method="post">
                     <input type="hidden" name="id_nilai" value="<?php echo $this->uri->segment(3)?>">

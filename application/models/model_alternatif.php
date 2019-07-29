@@ -77,6 +77,17 @@ class model_alternatif extends CI_Model{
 		return $query;
 	}
 
+	public function getNilaiAlternatifBiId2($id_alternatif){
+		$this->db->select('*');
+		$this->db->from('tb_nilaialternatif');
+		$this->db->join('tb_alternatif', 'tb_alternatif.id_alternatif = tb_nilaialternatif.id_alternatif');
+		$this->db->join('tb_kriteria', 'tb_kriteria.id_kriteria = tb_nilaialternatif.id_kriteria');
+		$this->db->where('tb_nilaialternatif.id_alternatif',$id_alternatif);
+		$this->db->order_by('tb_nilaialternatif.id_nilai','ASC');
+		$query = $this->db->get();
+		return $query;
+	}
+
 	public function getNilaiAlternatif3($id_nilai){
 		$this->db->select('*');
 		$this->db->from('tb_nilaialternatif');
@@ -109,7 +120,7 @@ class model_alternatif extends CI_Model{
 
 	//DETAIL ALTERNATIF MBILE
 	public function get_detail_nilai_alternatif($id){
-		$this->db->select('id_nilai,nilai,nama_kriteria,satuan_kriteria');
+		$this->db->select('id_nilai,nilai,nama_kriteria,satuan_kriteria,tb_kriteria.id_kriteria');
 		$this->db->from('tb_nilaialternatif');
 		$this->db->join('tb_kriteria','tb_nilaialternatif.id_kriteria=tb_kriteria.id_kriteria');
 		$this->db->where('tb_nilaialternatif.id_alternatif',$id);
@@ -136,8 +147,19 @@ class model_alternatif extends CI_Model{
 		
 	}
 
+	
+
 	public function prosesTambahNilaiAlternatif($id_alternatif, $data){
 		$this->db->set($data)->insert('tb_nilaialternatif');
+	}
+
+	public function prosesTambahNilaiAlternatif2($id_alternatif, $data1,$data2,$data3,$data5){
+		
+		$this->db->set($data1)->insert('tb_nilaialternatif');
+		$this->db->set($data2)->insert('tb_nilaialternatif');
+		$this->db->set($data3)->insert('tb_nilaialternatif');
+		$this->db->set($data5)->insert('tb_nilaialternatif');
+
 	}
 
 	public function prosesEditNilaiAlternatif($id_nilai, $data){

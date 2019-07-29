@@ -23,5 +23,9 @@ class model_user extends CI_Model{
     public function editUser($data, $id_user){
     	$this->db->set($data)->where('id_user', $id_user)->update('tb_user');
     }
+
+    public function hapusUser($id_user){
+        $this->db->where('id_user',$id_user)->delete('tb_user');
+    }
 }
 ?>

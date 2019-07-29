@@ -30,7 +30,7 @@ class Alternatif extends CI_Controller{
 
 	public function saveTambahAlternatif(){
 		$input['nama_alternatif'] = $this->input->post('nama_alternatif');
-        $input['status'] = $this->input->post('status_alternatif');
+        $input['status'] = "Non Aktif";
 
         $this->db->insert('tb_alternatif', $input);
         //$this->model_alternatif->tambah_alternatif_trigger();
@@ -72,13 +72,17 @@ class Alternatif extends CI_Controller{
 
 		$data_alternatif = $this->model_alternatif->getAltenatifById($id_alternatif)->row();
 		$data_nilaialternatif = $this->model_alternatif->getNilaiAlternatif($id_alternatif)->result();
+		$data_alternatif_count = $this->model_alternatif->getNilaiAlternatif($id_alternatif)->num_rows();
 		$data_kriteria = $this->model_alternatif->getKriteria()->result();
 		$data = array(
 			'data_alternatif' => $data_alternatif,
 			'data_nilaialternatif' => $data_nilaialternatif,
+			'data_alternatif_count' => $data_alternatif_count,
 			'data_kriteria' => $data_kriteria,
-			'content'=>'vNilaiAlternatif'
+			'content'=>'vNilaiAlternatif2'
 		);
+		// print_r($data);
+		// die();
 		$this->load->view('template/template',$data);
 	}
 
@@ -92,6 +96,71 @@ class Alternatif extends CI_Controller{
 			'data_nilaialternatif' => $data_nilaialternatif,
 			'data_kriteria' => $data_kriteria,
 			'content'=>'vTambahNilaiAlternatif'
+		);
+		$this->load->view('template/template',$data);
+	}
+
+	public function tambahNilaiAlternatif2(){
+		$id_alternatif =$this->uri->segment(3);
+		$data_alternatif = $this->model_alternatif->getAltenatifById($id_alternatif)->row();
+		$data_kriteria = $this->model_alternatif->getKriteria()->result();
+		$data = array(
+			'data_alternatif' => $data_alternatif,
+			'data_kriteria' => $data_kriteria,
+			'content'=>'vTambahNilaiAlternatif2'
+		);
+		$this->load->view('template/template',$data);
+	}
+
+	public function saveTambahNilaiAlternatif2(){
+		$id_alternatif = $this->input->post('id_alternatif');
+
+		$id_kriteria1 = $this->input->post('id_kriteria_1');
+		$nilai1 = $this->input->post('nilai_1');
+
+		$id_kriteria2 = $this->input->post('id_kriteria_2');
+		$nilai2 = $this->input->post('nilai_2');
+
+		$id_kriteria3 = $this->input->post('id_kriteria_3');
+		$nilai3 = $this->input->post('nilai_3');
+
+		$id_kriteria5 = $this->input->post('id_kriteria_5');
+		$nilai5 = $this->input->post('nilai_5');
+
+		$data1 = array(
+			'id_alternatif' => $id_alternatif,
+			'id_kriteria' => $id_kriteria1,
+			'nilai' => $nilai1
+		);
+		$data2 = array(
+			'id_alternatif' => $id_alternatif,
+			'id_kriteria' => $id_kriteria2,
+			'nilai' => $nilai2
+		);
+		$data3 = array(
+			'id_alternatif' => $id_alternatif,
+			'id_kriteria' => $id_kriteria3,
+			'nilai' => $nilai3
+		);
+		$data5 = array(
+			'id_alternatif' => $id_alternatif,
+			'id_kriteria' => $id_kriteria5,
+			'nilai' => $nilai5
+		);
+		$this->model_alternatif->prosesTambahNilaiAlternatif2($id_alternatif, $data1,$data2,$data3,$data5);
+		redirect(site_url('Alternatif'));
+	}
+
+	public function editNilaiAlternatif2(){
+		$id_alternatif =$this->uri->segment(3);
+		$data_alternatif = $this->model_alternatif->getAltenatifById($id_alternatif)->row();
+		$data_nilaialternatif = $this->model_alternatif->getNilaiAlternatif($id_alternatif)->result();
+		$data_kriteria = $this->model_alternatif->getKriteria()->result();
+		$data = array(
+			'data_alternatif' => $data_alternatif,
+			'data_nilaialternatif' => $data_nilaialternatif,
+			'data_kriteria' => $data_kriteria,
+			'content'=>'vEditNilaiAlternatif2'
 		);
 		$this->load->view('template/template',$data);
 	}

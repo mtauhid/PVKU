@@ -35,8 +35,7 @@
                         <option selected disabled>-Pilih Skala Kriteria</option>
                         <?php
                         foreach($data_skala_kriteria_by_id as $row2){
-
-                          echo "<option value='$row2->id_skalakriteria'>$row2->skala_kriteria ($row2->nilai_skalakriteria)</option>";
+                          echo "<option value='$row2->id_skalakriteria'>$row2->skala_kriteria range ($row2->range_skala) bobot ($row2->nilai_skalakriteria)</option>";
                         }
                         ?>
                       </select>

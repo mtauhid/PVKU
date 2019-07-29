@@ -68,7 +68,7 @@ class model_pembobotan extends CI_Model{
     }
 
     public function getSkalaKriteriaByIdApi($id_kriteria){
-        $this->db->select('id_skalakriteria,skala_kriteria,nilai_skalakriteria');
+        $this->db->select('id_skalakriteria,skala_kriteria,nilai_skalakriteria,range_skala');
         $this->db->from('tb_skalakriteria');
         $this->db->join('tb_kriteria','tb_kriteria.id_kriteria=tb_skalakriteria.id_kriteria');
         $this->db->where('tb_kriteria.id_kriteria',$id_kriteria);

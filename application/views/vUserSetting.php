@@ -39,6 +39,7 @@
                   <p class="card-description">
                     <!--Basic form elements-->
                   </p>
+                  <form action="<?php echo site_url('Lainnya/edit_user_no_pass')?>" method="post">
                     <div class="form-group">
                       <label for="exampleInputName1">Nama Lengkap</label>
                       <input type="hidden" name="id_user" value="<?php echo $data_user->id_user?>">
@@ -65,9 +66,10 @@
                   <p class="card-description">
                     <!--Basic form elements-->
                   </p>
-                  <form id="form1" class="forms-sample" method="post">
+                  <form action="<?php echo site_url('Lainnya/edit_pass')?>" class="forms-sample" method="post">
                     <div class="form-group">
                       <label for="exampleInputName1">Password</label>
+                      <input type="hidden" name="id_user" value="<?php echo $data_user->id_user?>">
                       <input type="password" name="password" class="form-control" id="exampleInputName1" placeholder="Password">
                     </div>
                     <button type="submit" id="btn-submit" class="btn btn-primary mr-2">Simpan Perubahan</button>

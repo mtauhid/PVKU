@@ -10,19 +10,19 @@
                   <form id="form1" class="forms-sample" method="post">
                     <div class="form-group">
                       <label for="exampleInputName1">Nama Lengkap</label>
-                      <input type="text" name="nama" class="form-control" id="exampleInputName1" placeholder="Nama Lengkap">
+                      <input type="text" name="nama" class="form-control" id="exampleInputName1" placeholder="Nama Lengkap" required>
                     </div>
                     <div class="form-group">
                       <label for="exampleInputName1">Username</label>
-                      <input type="text" name="username" class="form-control" id="exampleInputName1" placeholder="Username">
+                      <input type="text" name="username" class="form-control" id="exampleInputName1" placeholder="Username" required>
                     </div>
                     <div class="form-group">
                       <label for="exampleInputName1">Password</label>
-                      <input type="password" name="password" class="form-control" id="exampleInputName1" placeholder="Password">
+                      <input type="password" name="password" class="form-control" id="exampleInputName1" placeholder="Password" required>
                     </div>
                     <div class="form-group">
                       <label for="exampleInputName1">Level</label>
-                      <select name="level" class="form-control">
+                      <select name="level" class="form-control" required>
                         <option selected disabled>Pilih Level User</option>
                           <option value='Super Admin'>Super Admin</option>
                           <option value='Admin'>Admin</option>

@@ -11,36 +11,10 @@ class nilaiAlternatif extends CI_Controller{
         $this->load->model('model_alternatif');
     }
 	public function index(){
+		$id_alternatif = $this->uri->segment(3);
 		$data_alternatif = $this->model_alternatif->getAlternatif();
 		$data_nilaialternatif = $this->model_alternatif->getNilaiAlternatif2()->result();
-		$data_kriteria = $this->model_alternatif->getKriteria()->result();
-		$data=array(
-			'data_alternatif' => $data_alternatif,
-			'data_nilaialternatif' => $data_nilaialternatif,
-			'data_kriteria' => $data_kriteria,
-			'content'=>'vNilaiAlternatif'
-		);
-		$this->load->view('template/template',$data);
-	}
-
-	public function search1(){
-		$filter = $this->input->post('search1');
-		$data_alternatif = $this->model_alternatif->getAlternatif();
-		$data_nilaialternatif = $this->model_alternatif->getSearchNilaiAlternatif($filter)->result();
-		$data_kriteria = $this->model_alternatif->getKriteria()->result();
-		$data=array(
-			'data_alternatif' => $data_alternatif,
-			'data_nilaialternatif' => $data_nilaialternatif,
-			'data_kriteria' => $data_kriteria,
-			'content'=>'vNilaiAlternatif'
-		);
-		$this->load->view('template/template',$data);
-	}
-
-	public function search2(){
-		$filter = $this->input->post('search2');
-		$data_alternatif = $this->model_alternatif->getAlternatif();
-		$data_nilaialternatif = $this->model_alternatif->getSearchNilaiAlternatif($filter)->result();
+		$data_nilaialternatif2 = $this->model_alternatif->getNilaiAlternatifById2($id_alternatif)->row();
 		$data_kriteria = $this->model_alternatif->getKriteria()->result();
 		$data=array(
 			'data_alternatif' => $data_alternatif,

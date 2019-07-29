@@ -91,11 +91,13 @@ class Kriteria extends CI_Controller{
 	public function prosesTambahSkalaKriteria(){
 		$id_kriteria = $this->input->post('id_kriteria');
 		$skala_kriteria = $this->input->post('skala_kriteria');
+		$range_skala = $this->input->post('range_skala');
 		$nilai_skala_kriteria = $this->input->post('nilai_skala');
 
 		$data = array(
 			'id_kriteria' => $id_kriteria,
 			'skala_kriteria' => $skala_kriteria,
+			'range_skala' => $range_skala,
 			'nilai_skalakriteria' => $nilai_skala_kriteria
 		);
 
@@ -118,11 +120,13 @@ class Kriteria extends CI_Controller{
 		$id_skalakriteria = $this->input->post('id_skalakriteria');
 		$id_kriteria = $this->input->post('id_kriteria');
 		$skala_kriteria = $this->input->post('skala_kriteria');
+		$range_skala = $this->input->post('range_skala');
 		$nilai_skalakriteria = $this->input->post('nilai_skala');
 
 		$data = array(
 			'id_kriteria' => $id_kriteria,
 			'skala_kriteria' => $skala_kriteria,
+			'range_skala' => $range_skala,
 			'nilai_skalakriteria' => $nilai_skalakriteria
 		);
 
@@ -131,10 +135,16 @@ class Kriteria extends CI_Controller{
 	}
 
 	public function deleteSkalaKriteria(){
-		$list = $this->model_kriteria->getSkalaKriteria2($id_skalakriteria)->row();
-		$id['id_skalakriteria'] = $list;
-		$id_kriteria = $this->uri->segment(3);
-        $this->model_kriteria->deleteData('tb_skalakriteria',$id);
+		$id_kriteria = $this->input->post('id_kriteria');
+		$id_skalakriteria = $this->input->post('id_skalakriteria');
+        $this->db->where('id_skalakriteria',$id_skalakriteria)->delete('tb_skalakriteria');
+        redirect("Kriteria/skalaKriteria/".$id_kriteria);
+    }
+
+	public function deleteSkalaKriteria2s(){
+		$id_kriteria = $this->input->post('id_kriteria');
+		$id_skalakriteria = $this->input->post('id_skalakriteria');
+        $this->model_kriteria->deleteData('tb_skalakriteria',$id_skalakriteria);
         redirect("Kriteria/skalaKriteria/".$id_kriteria);
 	}
 

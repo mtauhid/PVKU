@@ -40,7 +40,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="icon-user text-primary"></i></span>
                     </div>
-                    <input type="text" name="username" class="form-control text-primary" placeholder="Username">
+                    <input type="text" name="username" class="form-control text-primary" placeholder="Username" required="" autofocus>
                   </div>
                 </div>
                 <div class="form-group">
@@ -48,12 +48,44 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="icon-lock text-primary"></i></span>
                     </div>
-                    <input type="password" name="password" class="form-control text-primary" placeholder="Password">
+                    <input type="password" name="password" class="form-control text-primary" placeholder="Password" required="">
                   </div>
                 </div>
                 <div class="form-group">
                   <button type="submit" class="btn btn-primary submit-btn">LOGIN</button>
                 </div>
+                <?php
+                  if (isset($errVar)) {
+                    if ($errVar==1) {
+                ?>
+                  <div class="toast" data-autohide="false">
+                    <div class="toast-header">
+                      <strong class="mr-auto text-danger">Gagal Login</strong>
+                      <small class="text-muted">2 secs ago</small>
+                      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+                    </div>
+                    <div class="toast-body">
+                      Username atau Password Salah ! Coba Lagi.
+                    </div>
+                  </div>
+                <?php
+                    } else if ($errVar==2){
+                ?>
+                  <div class="toast" data-autohide="false">
+                    <div class="toast-header">
+                      <strong class="mr-auto text-danger">Gagal Login</strong>
+                      <small class="text-muted">2 secs ago</small>
+                      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+                    </div>
+                    <div class="toast-body">
+                      Username atau Password Salah ! Coba Lagi.
+                    </div>
+                  </div>
+                <?php
+                    }
+                  }
+                ?>
+                
                 <div class="wrapper mt-5 text-gray">
                   <p class="footer-text">Teknologi Informasi | Politeknik Negeri Jember (2019)</p>
                   <!--<ul class="auth-footer text-gray">

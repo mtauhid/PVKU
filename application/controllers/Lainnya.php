@@ -37,7 +37,7 @@ class Lainnya extends CI_Controller{
 			'nama_user' => $nama,
 			'username' => $username,
 			'password' => md5($password),
-			'level_user' => $level
+			'level' => $level
 		);
 		$this->model_user->tambahUser($data);
 	}
@@ -63,7 +63,7 @@ class Lainnya extends CI_Controller{
 			'nama_user' => $nama,
 			'username' => $username,
 			'password' => md5($password),
-			'level_user' => $level
+			'level' => $level
 		);
 		$this->model_user->editUser($data, $id_user);
 	}
@@ -76,6 +76,63 @@ class Lainnya extends CI_Controller{
 			'content' => 'vUserSetting'
 		);
 		$this->load->view('template/template',$data);
+	}
+
+	public function edit_user_no_pass(){
+		$id_user = $this->input->post('id_user');
+		$nama = $this->input->post('nama');
+		$username = $this->input->post('username');
+		$level = $this->input->post('level');
+
+		$data = array(
+			'nama_user' => $nama,
+			'username' => $username,
+			'level' => $level
+		);
+		$this->model_user->editUser($data, $id_user);
+		redirect(site_url("Lainnya/user_setting/".$id_user));
+	}
+
+	public function edit_pass(){
+		$id_user = $this->input->post('id_user');
+		$pass = $this->input->post('password');
+
+		$data = array(
+			'password' => md5($pass)
+		);
+		$this->model_user->editUser($data, $id_user);
+		redirect(site_url("Lainnya/user_setting/".$id_user));
+	}
+	public function edit_user_no_pass_1(){
+		$id_user = $this->input->post('id_user');
+		$nama = $this->input->post('nama');
+		$username = $this->input->post('username');
+		$level = $this->input->post('level');
+
+		$data = array(
+			'nama_user' => $nama,
+			'username' => $username,
+			'level' => $level
+		);
+		$this->model_user->editUser($data, $id_user);
+		redirect(site_url("Lainnya"));
+	}
+
+	public function edit_pass_1(){
+		$id_user = $this->input->post('id_user');
+		$pass = $this->input->post('password');
+
+		$data = array(
+			'password' => md5($pass)
+		);
+		$this->model_user->editUser($data, $id_user);
+		redirect(site_url("Lainnya"));
+	}
+
+	public function hapusUser(){
+		$id_user = $this->uri->segment(3);
+		$this->model_user->hapusUser($id_user);
+		redirect(site_url("Lainnya"));
 	}
 }
 ?>

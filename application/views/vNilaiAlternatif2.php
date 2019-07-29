@@ -4,18 +4,17 @@
                 <div class="card-body">
                   <h4 class="card-title">Nilai Alternatif (<b><?php echo $data_alternatif->nama_alternatif?></b>)</h4>
                   <div class="row grid-margin">
-                    
                     <div class="col-12">
                       <?php
-                      if($data_nilaialternatif->id_alternatif == $this->uri->segment(3)){
-                      ?>
-                       
-                     <?php
-                   }else{
+                      if ($data_alternatif_count < 4) {  
                     ?>
-                    <a class="btn btn-success" href="<?php echo site_url('Alternatif/tambahNilaiAlternatif/'.$this->uri->segment(3))?>"><i class="icon icon-plus" disabled></i> Tambah Nilai Alternatif</a>
+                      <a class="btn btn-success" href="<?php echo site_url('Alternatif/tambahNilaiAlternatif2/'.$this->uri->segment(3))?>"><i class="icon icon-plus"></i> Tambah Nilai Alternatif</a>
                     <?php
-                   }
+                      } else {
+                    ?>
+                      <a class="btn btn-success disabled" href="<?php echo site_url('Alternatif/tambahNilaiAlternatif2/'.$this->uri->segment(3))?>"><i class="icon icon-plus"></i> Tambah Nilai Alternatif</a>
+                    <?php
+                      }
                     ?>
                      <a href="<?php echo site_url('Alternatif')?>" class="btn btn-primary">Batal</a>
                     </div>
@@ -82,12 +81,39 @@
                               <td  style="text-align: center;"><?php echo $row->nama_kriteria ?></td>
                               
                               <td  style="text-align: center;">
-                                <?php echo $row->nilai 
+                                <?php 
 
-                                if($row->nilai < 10){
+                                if($row->nilai < 10 && $row->id_kriteria == 1){
                                   echo "Kecil";
-                                }
+                                }else if($row->nilai <= 14 && $row->id_kriteria == 1){
+                                  echo "Sedang";
+                                }else if($row->nilai >= 15 && $row->id_kriteria == 1){
+                                  echo "Besar";
+                                  //Potensi Hasil
+                                }else if($row->nilai < 1.5 && $row->id_kriteria == 2){
+                                  echo "Rendah";
+                                }else if($row->nilai <= 2 && $row->id_kriteria == 2){
+                                  echo "Sedang";
+                                }else if($row->nilai > 2 && $row->id_kriteria == 2){
+                                  echo "Tinggi";
+                                  //Umur Panen
+                                }else if($row->nilai < 80 && $row->id_kriteria == 3){
+                                  echo "Genjah";
+                                }else if($row->nilai <= 85 && $row->id_kriteria == 3){
+                                  echo "Sedang";
+                                }else if($row->nilai > 85 && $row->id_kriteria == 3){
+                                  echo "Dalam";
+                                  //Tinggi Tanaman
+                                }else if($row->nilai < 50 && $row->id_kriteria == 5){
+                                  echo "Pendek";
+                                }else if($row->nilai <= 70 && $row->id_kriteria == 5){
+                                  echo "Sedang";
+                                }else if($row->nilai > 70 && $row->id_kriteria == 5){
+                                  echo "Tinggi";
+                                }else{
 
+                                }
+                                echo " (".$row->nilai." ".$row->satuan_kriteria.")";
                                 ?>
                                   
                               </td>
@@ -96,9 +122,6 @@
                                 <a class="btn btn-light btn-rounded" href="<?php echo site_url('Alternatif/editNilaiAlternatif/'.$row->id_nilai);?>">
                                   <i class="icon-pencil"></i> Edit
                                 </a>
-                                <a class="btn btn-light btn-rounded" href="<?php echo site_url('Alternatif/deleteAlternatif/'.$row->id_alternatif);?>">
-                                  <i class="icon-close"></i> Hapus
-                                </button>
                               </td>
                           </tr>
                           <?php 

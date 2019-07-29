@@ -1,7 +1,9 @@
 <?php
+// error_reporting(0);
 class Login extends CI_Controller{
 	public function __construct() {
         parent::__construct();
+
         $this->load->database();
         $this->load->model('model_login');
     }
@@ -18,35 +20,47 @@ class Login extends CI_Controller{
 	function cekLogin() {
         
         $username = $this->input->post('username');
-        $password = $this->input->post('password');
+        $password = md5($this->input->post('password'));
 
         $where = array(
         	'username' => $username,
-        	'password' => md5($password)
+        	'password' => $password
         );
        
-        $result = $this->model_login->login($username, $password);
+        $result=null;
+        if (!empty($username) && !empty($password)) {
+            $result = $this->model_login->login($username, $password);
+        }
+        
         if($result) {
             $sess_array = array();
-            foreach($result as $row) {
-                
-                $sess_array = array(
-                    'id_user' => $result->id_user,
-                    'nama_user' => $result->nama_user,
-                    'username'=>$result->username,
-                    'password' => $result->password,
-                    'level_user' => $result->level,
-                    'login_status'=>true,
-                );
-                
-                $this->session->set_userdata($sess_array);
-                redirect('Dashboard','refresh');
+            // print_r($result);
+            // die();
+            if ($result=='3') {
+                $tes['errVar']=1;
+                $this->load->view('vLogin',$tes);
+            } else {
+                foreach($result as $row) {
+                    $sess_array = array(
+                        'id_user' => $result->id_user,
+                        'nama_user' => $result->nama_user,
+                        'username'=>$result->username,
+                        'password' => $result->password,
+                        'level_user' => $result->level,
+                        'login_status'=>true,
+                    );
+                    
+                    $this->session->set_userdata($sess_array);
+                    redirect('Dashboard','refresh');
+                }
             }
             return TRUE;
         } else {
             
-            redirect('Dashboard','refresh');
-            return FALSE;
+            $tes['errVar']=2;
+            $this->load->view('vLogin',$tes);
+            // redirect('Dashboard','refresh');
+            // return FALSE;
         }
     }
 

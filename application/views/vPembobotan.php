@@ -5,7 +5,7 @@
                   <h4 class="card-title">Pembobotan</h4>
                   <div class="row grid-margin">
                     <div class="col-12">
-                      <a class="btn btn-success" href="<?php echo site_url('Pembobotan/tambahPembobotan')?>"><i class="icon icon-plus"></i> Tambah Pembobotan</a>
+                      <!-- <a class="btn btn-success" href="<?php echo site_url('Pembobotan/tambahPembobotan')?>"><i class="icon icon-plus"></i> Tambah Pembobotan</a> -->
                     </div>
                   </div>
                   <div class="row">
@@ -32,7 +32,7 @@
                               <td  style="text-align: center;"><?php echo $no++ ?></td>
                               <td  style="text-align: center;"><?php echo $row->nama_kriteria ?></td>
                               <td style="text-align: center;"><?php echo $row->skala_kriteria." (<b>".$row->bobot_awal."</b>)" ?></td>
-                              <td style="text-align: center;"><b><?php echo $row->bobot_akhir ?></b></td>
+                              <td style="text-align: center;"><b><?php echo number_format($row->bobot_akhir,3 )?></b></td>
                               <td style="text-align: center;">
                                 <a href="<?php echo base_url("Pembobotan/editBobot/".$row->id_kriteria)?>" class="btn btn-light btn-rounded "><i class="icon-pencil"></i> Edit</a>
                                 <a href="<?php echo base_url("Pembobotan/hapusBobot/".$row->id_bobot)?>" class="btn btn-light btn-rounded "><i class="icon-pencil"></i> Hapus</a>

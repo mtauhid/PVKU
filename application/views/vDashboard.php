@@ -102,7 +102,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-9 grid-margin stretch-card">
+          <!-- <div class="col-lg-9 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Langkah-langkah Menggunakan SPK</h4>
@@ -158,4 +158,4 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
