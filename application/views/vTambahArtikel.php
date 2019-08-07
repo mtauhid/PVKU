@@ -17,7 +17,7 @@
                         </textarea>
                       </div>
                     <button type="submit" class="btn btn-primary mr-2">Simpan</button>
-                    <a class="btn btn-light" href="<?php echo site_url('Alternatif')?>">Batal</a>
+                    <a class="btn btn-light" href="<?php echo site_url('Artikel')?>">Batal</a>
                   </form>
                 </div>
               </div>
